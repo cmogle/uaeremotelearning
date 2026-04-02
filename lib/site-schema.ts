@@ -63,7 +63,7 @@ export const journeyCardSchema = z
     description: safeTextSchema,
     target: linkSchema,
     audience: shortTextSchema,
-    icon: z.enum(["support", "calendar", "staff"]),
+    icon: z.enum(["support", "calendar", "staff", "wellbeing"]),
   })
   .strict();
 

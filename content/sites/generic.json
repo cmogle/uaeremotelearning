@@ -6,8 +6,8 @@
   "sectionOrder": ["hero", "journeys", "support", "today", "educator", "wellbeing", "footer"],
   "hero": {
     "eyebrow": "Distance Learning Support",
-    "title": "Remote learning works better when help is calm, visible, and immediate.",
-    "subtitle": "This site helps learners find the next step quickly and gives educators and families a clearer way to support without adding pressure.",
+    "title": "If remote learning feels too big, start with one small next step.",
+    "subtitle": "This page is designed first for learners. Choose the support you need now, then let the adults helping you go deeper through their own tab.",
     "badgeWords": ["Find help fast", "Reduce overload", "Support the next step", "Keep people connected"],
     "primaryCtaLabel": "Find student support",
     "primaryCtaTarget": "#support",
@@ -40,12 +40,12 @@
       "icon": "calendar"
     },
     {
-      "id": "support-learner",
-      "title": "I am a teacher, parent, or tutor",
-      "description": "Use practical guidance for support, escalation, and adapting remote learning for additional needs.",
-      "target": "#educator",
-      "audience": "Adults supporting learners",
-      "icon": "staff"
+      "id": "wellbeing",
+      "title": "I need calm, comfort, or a person",
+      "description": "Go straight to regulation steps, wellbeing support, and human contact routes.",
+      "target": "#wellbeing",
+      "audience": "Students",
+      "icon": "wellbeing"
     }
   ],
   "headings": {

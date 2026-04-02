@@ -6,8 +6,8 @@
   "sectionOrder": ["hero", "journeys", "support", "today", "educator", "wellbeing", "footer"],
   "hero": {
     "eyebrow": "Jumeirah College",
-    "title": "A calmer, clearer way through the remote school day.",
-    "subtitle": "This site helps students find the next step, helps adults know how to support, and keeps vital contacts close when the day feels hard.",
+    "title": "When remote school feels hard, start with the next small step.",
+    "subtitle": "This page is mainly for students. Pick the help you need right now, use one small step, and find an adult quickly if the day is becoming too much.",
     "badgeWords": ["Find help fast", "One step at a time", "Support is visible", "You are not alone"],
     "primaryCtaLabel": "I need help now",
     "primaryCtaTarget": "#support",
@@ -40,12 +40,12 @@
       "icon": "calendar"
     },
     {
-      "id": "support-learner",
-      "title": "I am supporting a learner",
-      "description": "Get educator and family guidance, escalation routes, and practical ways to reduce stress and barriers.",
-      "target": "#educator",
-      "audience": "Teachers, tutors, parents, carers",
-      "icon": "staff"
+      "id": "wellbeing",
+      "title": "I need calm, comfort, or a person",
+      "description": "Go straight to wellbeing contacts, quick reset steps, and trusted support when the day feels too big.",
+      "target": "#wellbeing",
+      "audience": "Students",
+      "icon": "wellbeing"
     }
   ],
   "headings": {

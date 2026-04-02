@@ -81,6 +81,14 @@ button:focus-visible {
   min-height: 4.3rem;
 }
 
+.header-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: flex-end;
+}
+
 .site-mark {
   align-items: center;
   display: inline-flex;
@@ -95,16 +103,48 @@ button:focus-visible {
   gap: 0.8rem;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav button {
   border-radius: 999px;
+  border: 0;
+  background: transparent;
   color: var(--muted-color);
+  cursor: pointer;
   font-size: 0.92rem;
   font-weight: 600;
   padding: 0.55rem 0.85rem;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav button:hover {
   background: color-mix(in srgb, var(--surface-alt) 58%, white);
+  color: var(--text-color);
+}
+
+.audience-switch {
+  align-items: center;
+  background: color-mix(in srgb, var(--surface-alt) 52%, white);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 0.35rem;
+  padding: 0.28rem;
+}
+
+.audience-pill {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: 2.6rem;
+  padding: 0.6rem 0.9rem;
+}
+
+.audience-pill.active {
+  background: var(--surface);
+  box-shadow: 0 2px 10px rgb(15 23 42 / 0.08);
   color: var(--text-color);
 }
 
@@ -224,6 +264,8 @@ button:focus-visible {
 .primary-button,
 .secondary-button {
   align-items: center;
+  border: 0;
+  cursor: pointer;
   display: inline-flex;
   font-weight: 700;
   gap: 0.55rem;
@@ -456,10 +498,18 @@ button:focus-visible {
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--surface-alt) 70%, white), var(--surface));
   border: 1px solid color-mix(in srgb, var(--primary-color) 16%, transparent);
+  cursor: pointer;
+  text-align: left;
   display: grid;
   gap: 1rem;
   min-height: 100%;
   padding: 1.35rem;
+}
+
+.route-card.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary-color) 28%, transparent),
+    0 18px 48px rgb(15 23 42 / 0.08);
 }
 
 .route-audience {
@@ -480,6 +530,14 @@ button:focus-visible {
 
 .support-grid {
   grid-template-columns: minmax(280px, 0.85fr) minmax(340px, 1.15fr);
+}
+
+.panel-section {
+  padding-top: 2.6rem;
+}
+
+.adult-hub {
+  padding-top: 3rem;
 }
 
 .contact-rail,
@@ -647,6 +705,25 @@ button:focus-visible {
   margin-top: 1.6rem;
 }
 
+.adult-summary-card {
+  background: color-mix(in srgb, var(--surface-alt) 55%, white);
+  border-radius: 24px;
+  margin-top: 1.35rem;
+  padding: 1rem 1.15rem;
+}
+
+.adult-summary-card strong {
+  color: var(--primary-dark);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.adult-summary-card p {
+  color: var(--muted-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .educator-card {
   display: grid;
   gap: 0.95rem;
@@ -739,12 +816,29 @@ button:focus-visible {
     padding-top: 0.8rem;
   }
 
+  .header-controls {
+    align-items: stretch;
+    width: 100%;
+  }
+
   .site-nav {
     width: 100%;
   }
 
   .site-nav a {
     background: color-mix(in srgb, var(--surface-alt) 52%, white);
+  }
+
+  .site-nav button {
+    background: color-mix(in srgb, var(--surface-alt) 52%, white);
+  }
+
+  .audience-switch {
+    width: 100%;
+  }
+
+  .audience-pill {
+    flex: 1;
   }
 
   .hero-copy h1 {
