@@ -186,6 +186,7 @@ export const siteDefinitionSchema = z
     educatorCards: z.array(educatorCardSchema).min(2).max(6),
     accessibilityFeatures: z.array(accessibilityFeatureSchema).min(2).max(6),
     footer: footerSchema,
+    adultFooter: footerSchema,
     theme: themeTokenSchema,
   })
   .strict();

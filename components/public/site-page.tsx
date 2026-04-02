@@ -41,6 +41,7 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
 
   const activeCard =
     site.helperCards.find((card) => card.id === selectedCardId) ?? site.helperCards[0];
+  const activeFooter = audienceMode === "adult" ? site.adultFooter : site.footer;
   const ActiveIcon = activeCard ? getIcon(activeCard.icon) : Sparkles;
   const tabPanelId = activeCard ? `support-panel-${activeCard.id}` : "support-panel";
   const tabId = activeCard ? `support-tab-${activeCard.id}` : "support-tab";
@@ -597,10 +598,10 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
         <footer className="footer">
           <div className="page-shell footer-shell">
             <div>
-              <h3>{site.footer.title}</h3>
-              <p>{site.footer.text}</p>
+              <h3>{activeFooter.title}</h3>
+              <p>{activeFooter.text}</p>
             </div>
-            <div className="footer-note">{site.footer.note}</div>
+            <div className="footer-note">{activeFooter.note}</div>
           </div>
         </footer>
       </main>

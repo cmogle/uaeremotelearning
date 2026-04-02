@@ -295,6 +295,11 @@
     "text": "You are still part of school, even on a difficult day. A short message, one clarified task, or one check-in is enough to begin again.",
     "note": "If you feel stuck, contact your teacher, tutor, or pastoral team so they can help you rejoin."
   },
+  "adultFooter": {
+    "title": "Reduce the barrier first, then rebuild the routine.",
+    "text": "Adults can help most by making re-entry feel possible: clarify the next step, lower the language load, and reconnect the learner with the right person early.",
+    "note": "If concern continues, use tutor, pastoral, and support-for-learning routes before the learner falls further behind."
+  },
   "theme": {
     "fontFamily": "Avenir",
     "pageBackground": "#f4f7f6",

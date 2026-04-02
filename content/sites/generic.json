@@ -283,6 +283,11 @@
     "text": "Remote learning becomes more manageable when help is calm, clear, and easy to reach for learners and the adults around them.",
     "note": "If a learner is stuck, ask a trusted adult, teacher, or support lead for the next small step."
   },
+  "adultFooter": {
+    "title": "Make re-entry feel possible, not punitive.",
+    "text": "Adults can lower stress by simplifying the route back in, checking access needs early, and giving the learner one clear next action instead of a long list.",
+    "note": "If the barrier continues, involve the right support lead or pastoral contact before the learner becomes more disconnected."
+  },
   "theme": {
     "fontFamily": "Humanist",
     "pageBackground": "#f7faf9",
