@@ -1,0 +1,185 @@
+{
+  "siteKey": "generic",
+  "siteName": "Distance Learning Support Hub",
+  "shortName": "Remote Learning Hub",
+  "audience": "Students and families in distance learning communities",
+  "sectionOrder": ["hero", "support", "today", "expectations", "work", "wellbeing", "footer"],
+  "hero": {
+    "eyebrow": "Distance Learning Hub",
+    "title": "Remote learning works best when the next step feels small and clear.",
+    "subtitle": "This site gives students a calm place to get organised, ask for support, and keep moving through the school day online.",
+    "badgeWords": ["Stay steady", "Ask early", "One step", "Keep going"],
+    "primaryCtaLabel": "Find support",
+    "primaryCtaTarget": "#support",
+    "secondaryCtaLabel": "Plan your day",
+    "secondaryCtaTarget": "#today",
+    "quickStartTitle": "Start here",
+    "quickStartSubtitle": "A simple first five minutes",
+    "quickStartSteps": [
+      "Open today's lesson or task list",
+      "Write down the first small action",
+      "Start before you feel fully ready"
+    ],
+    "quickStartNote": "The goal is progress, not perfection."
+  },
+  "headings": {
+    "supportEyebrow": "Student support",
+    "supportTitle": "What do you need right now?",
+    "supportCaption": "Choose the support card that matches the moment.",
+    "dayTitle": "How to structure the day",
+    "lessonTitle": "How online learning usually works",
+    "onlineExpectationsTitle": "Shared expectations",
+    "phraseTitle": "Words students can use",
+    "phraseCaption": "Short phrases that make it easier to ask for help early.",
+    "workTitle": "How to make remote learning work",
+    "wellbeingTitle": "Looking after your wellbeing",
+    "supportPageTitle": "Support and wellbeing",
+    "supportPageIntro": "Distance learning can be demanding, and support should be easy to find."
+  },
+  "helperCards": [
+    {
+      "id": "time",
+      "title": "I keep missing the start",
+      "icon": "timer",
+      "tone": "indigo",
+      "steps": [
+        "Set a reminder before each lesson.",
+        "Keep your timetable visible.",
+        "Check what comes next before one lesson ends."
+      ],
+      "note": "A visible routine makes the day feel easier to manage."
+    },
+    {
+      "id": "focus",
+      "title": "I cannot focus",
+      "icon": "focus",
+      "tone": "emerald",
+      "steps": [
+        "Work for five minutes.",
+        "Put your phone away.",
+        "Close tabs you do not need.",
+        "Return to one clear task."
+      ],
+      "note": "Small focus blocks build momentum."
+    },
+    {
+      "id": "support",
+      "title": "I need help",
+      "icon": "support",
+      "tone": "teal",
+      "steps": [
+        "Message your teacher or learning mentor.",
+        "Say exactly where you are stuck.",
+        "Ask for the first step, not the whole answer."
+      ],
+      "note": "Early questions prevent bigger stress later."
+    },
+    {
+      "id": "wellbeing",
+      "title": "I feel stressed",
+      "icon": "heart",
+      "tone": "blue",
+      "steps": [
+        "Pause for one slow breath.",
+        "Stand up and stretch.",
+        "Notice one thing you can do next."
+      ],
+      "note": "Reset first, then return."
+    }
+  ],
+  "dayExpectations": [
+    "Start each lesson or task on time if you can.",
+    "Check the main learning platform daily.",
+    "Complete work in manageable chunks.",
+    "Ask for help before stress builds up.",
+    "Keep a simple routine for breaks, food, and movement."
+  ],
+  "lessonRules": [
+    "Teachers may use a mix of live teaching, posted tasks, email, or chat.",
+    "Read instructions slowly before you begin.",
+    "Keep track of lesson times and deadlines.",
+    "Use one main space to store notes and tasks."
+  ],
+  "onlineExpectations": [
+    "Show up ready to learn.",
+    "Follow instructions respectfully.",
+    "Keep communication kind and clear.",
+    "Meet deadlines where possible.",
+    "Let staff know early if something is getting in the way."
+  ],
+  "supportPhrases": [
+    { "text": "I am not sure what the first step is." },
+    { "text": "Could you explain that another way?" },
+    { "text": "I need help getting started." }
+  ],
+  "supportBullets": [
+    "Break tasks into manageable steps",
+    "Build routines and organisation",
+    "Find the right contact for support",
+    "Keep remote learning sustainable"
+  ],
+  "wellbeingHabits": [
+    "Sleep well when you can.",
+    "Eat and drink regularly.",
+    "Move between lessons.",
+    "Take short screen breaks.",
+    "Do something calming after study time."
+  ],
+  "wellbeingResetSteps": [
+    "Breathe in slowly.",
+    "Breathe out slowly.",
+    "Relax your shoulders.",
+    "Choose the next small task."
+  ],
+  "wellbeingContacts": [
+    {
+      "label": "Pastoral support",
+      "value": "Add the right pastoral or student support contact here"
+    },
+    {
+      "label": "Learning support",
+      "value": "Add the local support email here"
+    }
+  ],
+  "wellbeingResources": [
+    {
+      "title": "Breathing exercise",
+      "description": "Replace with a local wellbeing video or breathing guide.",
+      "href": "https://example.com/wellbeing-breathing"
+    },
+    {
+      "title": "Movement break",
+      "description": "Replace with a short reset or stretch resource.",
+      "href": "https://example.com/wellbeing-movement"
+    }
+  ],
+  "supportContacts": [
+    {
+      "label": "Learning support email",
+      "value": "Add your organisation's support email"
+    },
+    {
+      "label": "Teacher support",
+      "value": "Add your preferred teacher contact route"
+    }
+  ],
+  "footer": {
+    "title": "Keep the next step small.",
+    "text": "Remote learning gets easier when support is visible and the day is broken into manageable actions.",
+    "note": "Use Codex to tailor this version for a school, trust, or community by editing this content file."
+  },
+  "theme": {
+    "fontFamily": "Humanist",
+    "pageBackground": "#f8fafc",
+    "surface": "#ffffff",
+    "surfaceAlt": "#eff6ff",
+    "text": "#0f172a",
+    "mutedText": "#475569",
+    "primary": "#0369a1",
+    "primaryDark": "#0f4c81",
+    "primarySoft": "#dbeafe",
+    "heroFrom": "#164e63",
+    "heroTo": "#0f172a",
+    "heroGlow": "#67e8f9"
+  }
+}

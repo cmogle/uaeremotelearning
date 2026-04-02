@@ -1,0 +1,259 @@
+{
+  "siteKey": "jumeirah-college",
+  "siteName": "Jumeirah College Distance Learning Hub",
+  "shortName": "Jumeirah College",
+  "audience": "Students learning remotely at Jumeirah College",
+  "sectionOrder": ["hero", "support", "today", "expectations", "work", "wellbeing", "footer"],
+  "hero": {
+    "eyebrow": "Jumeirah College",
+    "title": "This is your school day. We are just doing it online.",
+    "subtitle": "You do not need to do this perfectly. You do need to log in, keep going, and ask for help when you need it.",
+    "badgeWords": ["Start small", "Do one thing", "Ask early", "Keep going"],
+    "primaryCtaLabel": "Get help now",
+    "primaryCtaTarget": "#support",
+    "secondaryCtaLabel": "See your day",
+    "secondaryCtaTarget": "#today",
+    "quickStartTitle": "Start work now",
+    "quickStartSubtitle": "Just 5 minutes",
+    "quickStartSteps": [
+      "Start your online lesson",
+      "Write the date and title",
+      "Follow the teacher's instructions"
+    ],
+    "quickStartNote": "You do not need to feel ready. Just begin."
+  },
+  "headings": {
+    "supportEyebrow": "Support for Learning",
+    "supportTitle": "What do you need right now?",
+    "supportCaption": "Pick one. Do the steps. Come back.",
+    "dayTitle": "Your day. Read this first",
+    "lessonTitle": "How lessons work",
+    "onlineExpectationsTitle": "Online expectations",
+    "phraseTitle": "Need help? Say this",
+    "phraseCaption": "Simple phrases students can use when they are stuck.",
+    "workTitle": "How to make this work",
+    "wellbeingTitle": "Looking after yourself",
+    "supportPageTitle": "Wellbeing and support",
+    "supportPageIntro": "If things feel difficult, you are not on your own."
+  },
+  "helperCards": [
+    {
+      "id": "time",
+      "title": "I miss the start of my lessons",
+      "icon": "timer",
+      "tone": "indigo",
+      "steps": [
+        "Set an alarm one minute before each lesson starts.",
+        "Print or write out your timetable.",
+        "Keep your timetable beside your laptop.",
+        "Check what lesson is next before finishing the current one.",
+        "Add your timetable to Google Calendar with a reminder."
+      ],
+      "note": "Use reminders to stay on track."
+    },
+    {
+      "id": "focus",
+      "title": "I cannot focus",
+      "icon": "focus",
+      "tone": "emerald",
+      "steps": [
+        "Set a five-minute timer.",
+        "Put your phone away.",
+        "Sit up and look at the screen.",
+        "Close tabs you do not need.",
+        "Try the Pomodoro method."
+      ],
+      "note": "Just get through five minutes."
+    },
+    {
+      "id": "overwhelmed",
+      "title": "I feel overwhelmed",
+      "icon": "heart",
+      "tone": "rose",
+      "steps": [
+        "Pick one task.",
+        "Ignore everything else for now.",
+        "Work for five minutes only.",
+        "Write down what comes next."
+      ],
+      "note": "One thing is enough."
+    },
+    {
+      "id": "eyes",
+      "title": "My eyes hurt",
+      "icon": "eye",
+      "tone": "sky",
+      "steps": [
+        "Every 20 minutes, look 20 metres away for 20 seconds.",
+        "Lower your screen brightness.",
+        "Blink slowly.",
+        "Stand up for a moment."
+      ],
+      "note": "Then come back and do one small task."
+    },
+    {
+      "id": "reader",
+      "title": "I do not like reading on a screen",
+      "icon": "listen",
+      "tone": "cyan",
+      "steps": [
+        "Try listening instead of reading everything yourself.",
+        "Turn on VoiceOver on a Mac with Command plus F5.",
+        "Turn on Narrator on Windows with Control plus Windows key plus Enter.",
+        "Use text-to-speech to follow long instructions."
+      ],
+      "note": "Listening can make long tasks feel easier.",
+      "extras": [
+        "Mac shortcut: Command plus F5",
+        "Windows shortcut: Control plus Windows key plus Enter"
+      ]
+    },
+    {
+      "id": "help",
+      "title": "I need help",
+      "icon": "message",
+      "tone": "teal",
+      "steps": [
+        "Subject teacher for your work",
+        "Form tutor for daily support",
+        "Head of Year if something is wrong",
+        "Counsellor if you feel stressed or overwhelmed",
+        "Support for Learning if you need extra structure"
+      ],
+      "note": "You are not on your own."
+    },
+    {
+      "id": "friends",
+      "title": "I miss my friends",
+      "icon": "friends",
+      "tone": "pink",
+      "steps": [
+        "Message a friend to check in.",
+        "Arrange a quick video or voice call.",
+        "Join group chats or study calls if you can.",
+        "Remember this is temporary."
+      ],
+      "note": "Staying connected helps you feel better."
+    },
+    {
+      "id": "wellbeing",
+      "title": "Wellbeing and support",
+      "icon": "sparkles",
+      "tone": "blue",
+      "steps": [
+        "Reach out to the counselling team if things feel heavy.",
+        "Use a short reset routine before the next lesson.",
+        "Ask for support early instead of waiting."
+      ],
+      "note": "Doing your best is enough."
+    }
+  ],
+  "dayExpectations": [
+    "Join every lesson live and on time.",
+    "Attend form time and assemblies.",
+    "Check Google Classroom every day.",
+    "Complete your work and meet deadlines.",
+    "Complete your Class Charts wellbeing check-in every day.",
+    "Attend key assemblies and updates."
+  ],
+  "lessonRules": [
+    "Your work will be on Google Classroom.",
+    "Your teacher will support you during the lesson.",
+    "Teachers may use Google Classroom, Google Meet, email, or chat.",
+    "Check instructions carefully.",
+    "Follow the day's timetable."
+  ],
+  "onlineExpectations": [
+    "Join lessons on time.",
+    "Follow instructions.",
+    "Keep your camera on when asked.",
+    "Behave respectfully.",
+    "Meet deadlines.",
+    "Be kind to others and yourself."
+  ],
+  "supportPhrases": [
+    { "text": "I do not understand step one." },
+    { "text": "I am stuck starting." },
+    { "text": "Can you help me?" },
+    { "text": "Can I talk to someone?" }
+  ],
+  "supportBullets": [
+    "Help to understand your work",
+    "Support to break tasks down",
+    "Help to stay organised",
+    "Support to get started and keep going"
+  ],
+  "wellbeingHabits": [
+    "Get enough sleep.",
+    "Eat regularly.",
+    "Drink water.",
+    "Keep your phone away when you are working.",
+    "Take time away from the screen.",
+    "Do something calming after lessons."
+  ],
+  "wellbeingResetSteps": [
+    "Take a slow breath in.",
+    "Breathe out slowly.",
+    "Drop your shoulders.",
+    "Focus on one small next step."
+  ],
+  "wellbeingContacts": [
+    {
+      "label": "Counselling Team",
+      "value": "counselling_jcd@gemsedu.com",
+      "email": "counselling_jcd@gemsedu.com"
+    },
+    {
+      "label": "Nicola Kesterton (Years 7 to 9)",
+      "value": "n.kesterton_jcd@gemsedu.com",
+      "email": "n.kesterton_jcd@gemsedu.com"
+    },
+    {
+      "label": "Krupa Sam (Years 10 to 13)",
+      "value": "k.sam_jcd@gemsedu.com",
+      "email": "k.sam_jcd@gemsedu.com"
+    }
+  ],
+  "wellbeingResources": [
+    {
+      "title": "Breathing video",
+      "description": "A short mindfulness video to slow things down before your next step.",
+      "href": "https://app.screencastify.com/watch/eurhZHDmVrzlYfsJbXxO"
+    },
+    {
+      "title": "Stretching reset",
+      "description": "A quick physical reset when you have been at your screen for too long.",
+      "href": "https://app.screencastify.com/watch/1zRaN49XkE7vgWrzD2f7"
+    }
+  ],
+  "supportContacts": [
+    {
+      "label": "Support for Learning",
+      "value": "f.nicconmara_jcd@gemsedu.com",
+      "email": "f.nicconmara_jcd@gemsedu.com"
+    },
+    {
+      "label": "Form tutor",
+      "value": "Contact your form tutor through the school platform"
+    }
+  ],
+  "footer": {
+    "title": "You do not need to be perfect.",
+    "text": "You just need to log in, start, keep going, and ask for help.",
+    "note": "Weekly bulletin links and live school updates can be added by editing the content file for this site."
+  },
+  "theme": {
+    "fontFamily": "Avenir",
+    "pageBackground": "#f5f7fb",
+    "surface": "#ffffff",
+    "surfaceAlt": "#ecfdf5",
+    "text": "#0f172a",
+    "mutedText": "#475569",
+    "primary": "#0f766e",
+    "primaryDark": "#115e59",
+    "primarySoft": "#d1fae5",
+    "heroFrom": "#064e3b",
+    "heroTo": "#0f172a",
+    "heroGlow": "#6ee7b7"
+  }
+}
