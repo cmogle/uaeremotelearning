@@ -3,14 +3,17 @@
 import { useMemo, useState } from "react";
 import {
   ArrowRight,
+  BookOpenCheck,
   CalendarDays,
   CheckCircle2,
-  ClipboardList,
+  Compass,
+  HandHeart,
   Laptop,
   Moon,
   School,
+  ShieldPlus,
   Sparkles,
-  UserRound,
+  Users,
 } from "lucide-react";
 
 import { getIcon, getToneClass, sanitizeSite, toThemeStyle } from "@/lib/site-utils";
@@ -20,25 +23,41 @@ type SitePageProps = {
   site: SiteDefinition;
 };
 
+const routeIcons = {
+  calendar: CalendarDays,
+  staff: Users,
+  support: HandHeart,
+} as const;
+
 export function SitePage({ site: unsafeSite }: SitePageProps) {
   const site = useMemo(() => sanitizeSite(unsafeSite), [unsafeSite]);
   const [selectedCardId, setSelectedCardId] = useState(site.helperCards[0]?.id ?? "");
   const activeCard =
     site.helperCards.find((card) => card.id === selectedCardId) ?? site.helperCards[0];
   const ActiveIcon = activeCard ? getIcon(activeCard.icon) : Sparkles;
+  const tabPanelId = activeCard ? `support-panel-${activeCard.id}` : "support-panel";
+  const tabId = activeCard ? `support-tab-${activeCard.id}` : "support-tab";
+
+  const navItems = [
+    { href: "#journeys", label: "Start here" },
+    { href: "#support", label: "Student help" },
+    { href: "#today", label: "Today" },
+    { href: "#educator", label: "Adults" },
+    { href: "#wellbeing", label: "Wellbeing" },
+  ];
 
   const sections: Record<SiteDefinition["sectionOrder"][number], React.ReactNode> = {
     hero: (
-      <section className="hero">
+      <section aria-labelledby="site-title" className="hero" id="top">
         <div className="page-shell hero-grid">
           <div className="hero-copy">
             <div className="eyebrow-pill">
-              <School size={16} />
+              <School aria-hidden="true" size={16} />
               <span>{site.hero.eyebrow}</span>
             </div>
-            <h1>{site.hero.title}</h1>
+            <h1 id="site-title">{site.hero.title}</h1>
             <p className="hero-subtitle">{site.hero.subtitle}</p>
-            <div className="badge-row">
+            <div aria-label="Guiding principles" className="badge-row">
               {site.hero.badgeWords.map((word) => (
                 <span key={word} className="hero-badge">
                   {word}
@@ -48,7 +67,7 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
             <div className="cta-row">
               <a href={site.hero.primaryCtaTarget} className="primary-button">
                 {site.hero.primaryCtaLabel}
-                <ArrowRight size={16} />
+                <ArrowRight aria-hidden="true" size={16} />
               </a>
               <a href={site.hero.secondaryCtaTarget} className="secondary-button">
                 {site.hero.secondaryCtaLabel}
@@ -56,10 +75,10 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
             </div>
           </div>
 
-          <div className="hero-card">
+          <aside aria-label={site.hero.quickStartTitle} className="hero-card">
             <div className="hero-card-heading">
               <div className="hero-card-icon">
-                <Sparkles size={22} />
+                <Compass aria-hidden="true" size={22} />
               </div>
               <div>
                 <h2>{site.hero.quickStartTitle}</h2>
@@ -67,211 +86,345 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
               </div>
             </div>
 
-            <div className="stack-list">
+            <ol className="stack-list numbered-list">
               {site.hero.quickStartSteps.map((step, index) => (
-                <div key={step} className="step-card">
+                <li key={step} className="step-card">
                   <div className="step-number">{index + 1}</div>
                   <p>{step}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
 
             <div className="inline-note">{site.hero.quickStartNote}</div>
+          </aside>
+        </div>
+      </section>
+    ),
+    journeys: (
+      <section aria-labelledby="journeys-title" className="section route-section" id="journeys">
+        <div className="page-shell">
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Start here</p>
+              <h2 id="journeys-title">{site.headings.journeyTitle}</h2>
+            </div>
+            <p className="section-caption">{site.headings.journeyCaption}</p>
+          </div>
+
+          <div className="route-grid">
+            {site.journeyCards.map((journey) => {
+              const Icon = routeIcons[journey.icon];
+              return (
+                <a key={journey.id} className="route-card" href={journey.target}>
+                  <div className="route-card-top">
+                    <div className="route-icon">
+                      <Icon aria-hidden="true" size={22} />
+                    </div>
+                    <span className="route-audience">{journey.audience}</span>
+                  </div>
+                  <h3>{journey.title}</h3>
+                  <p>{journey.description}</p>
+                  <span className="route-link">
+                    Go to this section
+                    <ArrowRight aria-hidden="true" size={16} />
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
     ),
     support: (
-      <section className="section-alt" id="support">
+      <section aria-labelledby="support-title" className="section-alt" id="support">
         <div className="page-shell">
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow">{site.headings.supportEyebrow}</p>
-              <h2>{site.headings.supportTitle}</h2>
+              <h2 id="support-title">{site.headings.supportTitle}</h2>
             </div>
             <p className="section-caption">{site.headings.supportCaption}</p>
           </div>
 
           <div className="support-grid">
-            <div className="card-grid">
-              {site.helperCards.map((card) => {
-                const Icon = getIcon(card.icon);
-                const active = activeCard?.id === card.id;
-
-                return (
-                  <button
-                    key={card.id}
-                    className={`selection-card ${active ? "active" : ""}`}
-                    onClick={() => setSelectedCardId(card.id)}
-                    type="button"
-                  >
-                    <div className="selection-card-header">
-                      <div className={`icon-chip ${getToneClass(card.tone)}`}>
-                        <Icon size={18} />
-                      </div>
-                      <span>{card.title}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {activeCard && (
-              <div className="detail-card">
-                <div className="detail-heading">
-                  <div className={`icon-chip large ${getToneClass(activeCard.tone)}`}>
-                    <ActiveIcon size={22} />
+            <div className="stack-list">
+              <article aria-labelledby="support-team-title" className="surface-card contact-rail">
+                <div className="section-card-heading">
+                  <div className="soft-icon">
+                    <ShieldPlus aria-hidden="true" size={22} />
                   </div>
-                  <h3>{activeCard.title}</h3>
+                  <div>
+                    <h3 id="support-team-title">{site.headings.supportTeamTitle}</h3>
+                    <p>{site.headings.supportTeamCaption}</p>
+                  </div>
                 </div>
-
-                <div className="stack-list">
-                  {activeCard.steps.map((step) => (
-                    <div className="step-line" key={step}>
-                      <ArrowRight size={16} />
-                      <p>{step}</p>
+                <div className="contact-grid">
+                  {site.supportContacts.map((contact) => (
+                    <div className="contact-card" key={contact.label}>
+                      <strong>{contact.label}</strong>
+                      {contact.email ? (
+                        <a href={`mailto:${contact.email}`}>{contact.value}</a>
+                      ) : (
+                        <p>{contact.value}</p>
+                      )}
                     </div>
                   ))}
                 </div>
+              </article>
 
-                {activeCard.extras?.length ? (
-                  <div className="support-extra">
-                    <p className="support-extra-title">Extra support</p>
-                    <ul>
-                      {activeCard.extras.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+              <article aria-labelledby="scripts-title" className="accent-card">
+                <div className="section-card-heading">
+                  <div className="soft-icon">
+                    <BookOpenCheck aria-hidden="true" size={22} />
                   </div>
-                ) : null}
+                  <div>
+                    <h3 id="scripts-title">{site.headings.phraseTitle}</h3>
+                    <p>{site.headings.phraseCaption}</p>
+                  </div>
+                </div>
+                <div className="script-list">
+                  {site.supportPhrases.map((phrase) => (
+                    <div className="quote-card" key={phrase.text}>
+                      "{phrase.text}"
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </div>
 
-                <p className="detail-note">{activeCard.note}</p>
+            <div className="detail-card support-panel-shell">
+              <div
+                aria-label="Student support topics"
+                className="support-tablist"
+                role="tablist"
+              >
+                {site.helperCards.map((card) => {
+                  const Icon = getIcon(card.icon);
+                  const isActive = activeCard?.id === card.id;
+                  const currentTabId = `support-tab-${card.id}`;
+                  const currentPanelId = `support-panel-${card.id}`;
+
+                  return (
+                    <button
+                      aria-controls={currentPanelId}
+                      aria-selected={isActive}
+                      className={`selection-card ${isActive ? "active" : ""}`}
+                      id={currentTabId}
+                      key={card.id}
+                      onClick={() => setSelectedCardId(card.id)}
+                      role="tab"
+                      tabIndex={isActive ? 0 : -1}
+                      type="button"
+                    >
+                      <div className="selection-card-header">
+                        <div className={`icon-chip ${getToneClass(card.tone)}`}>
+                          <Icon aria-hidden="true" size={18} />
+                        </div>
+                        <span>{card.title}</span>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
-            )}
+
+              {activeCard ? (
+                <div
+                  aria-labelledby={tabId}
+                  className="support-detail"
+                  id={tabPanelId}
+                  role="tabpanel"
+                >
+                  <div className="detail-heading">
+                    <div className={`icon-chip large ${getToneClass(activeCard.tone)}`}>
+                      <ActiveIcon aria-hidden="true" size={22} />
+                    </div>
+                    <h3>{activeCard.title}</h3>
+                  </div>
+
+                  <ol className="stack-list numbered-list">
+                    {activeCard.steps.map((step, index) => (
+                      <li className="step-line" key={step}>
+                        <div className="step-number">{index + 1}</div>
+                        <p>{step}</p>
+                      </li>
+                    ))}
+                  </ol>
+
+                  {activeCard.extras?.length ? (
+                    <div className="support-extra">
+                      <p className="support-extra-title">Extra support</p>
+                      <ul className="plain-list">
+                        {activeCard.extras.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+
+                  <p className="detail-note">{activeCard.note}</p>
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       </section>
     ),
     today: (
-      <section className="section" id="today">
-        <div className="page-shell two-column">
-          <article className="surface-card">
-            <div className="section-card-heading">
-              <div className="soft-icon">
-                <CalendarDays size={22} />
-              </div>
-              <h3>{site.headings.dayTitle}</h3>
+      <section aria-labelledby="today-title" className="section" id="today">
+        <div className="page-shell">
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Today</p>
+              <h2 id="today-title">{site.headings.dayTitle}</h2>
             </div>
-            <div className="stack-list">
-              {site.dayExpectations.map((item) => (
-                <div className="check-line" key={item}>
-                  <CheckCircle2 size={18} />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+            <p className="section-caption">{site.headings.routineCaption}</p>
+          </div>
 
-          <article className="ink-card">
-            <div className="section-card-heading">
-              <div className="soft-icon inverse">
-                <Laptop size={22} />
-              </div>
-              <h3>{site.headings.lessonTitle}</h3>
-            </div>
-            <div className="stack-list">
-              {site.lessonRules.map((item) => (
-                <div className="ink-line" key={item}>
-                  <p>{item}</p>
+          <div className="two-column">
+            <article className="surface-card">
+              <div className="section-card-heading">
+                <div className="soft-icon">
+                  <CalendarDays aria-hidden="true" size={22} />
                 </div>
-              ))}
-            </div>
-          </article>
+                <h3>{site.headings.dayTitle}</h3>
+              </div>
+              <div className="stack-list">
+                {site.dayExpectations.map((item) => (
+                  <div className="check-line" key={item}>
+                    <CheckCircle2 aria-hidden="true" size={18} />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="ink-card">
+              <div className="section-card-heading">
+                <div className="soft-icon inverse">
+                  <Laptop aria-hidden="true" size={22} />
+                </div>
+                <h3>{site.headings.lessonTitle}</h3>
+              </div>
+              <div className="stack-list">
+                {site.lessonRules.map((item) => (
+                  <div className="ink-line" key={item}>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+
+          <div className="two-column lower-grid">
+            <article className="surface-quiet-card">
+              <div className="section-card-heading">
+                <div className="soft-icon">
+                  <Sparkles aria-hidden="true" size={22} />
+                </div>
+                <div>
+                  <h3>{site.headings.routineTitle}</h3>
+                  <p>{site.headings.routineCaption}</p>
+                </div>
+              </div>
+              <div className="stack-list">
+                {site.supportBullets.map((item) => (
+                  <div className="support-block" key={item}>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="surface-card">
+              <div className="section-card-heading">
+                <div className="soft-icon">
+                  <CheckCircle2 aria-hidden="true" size={22} />
+                </div>
+                <h3>Shared expectations</h3>
+              </div>
+              <div className="pill-grid">
+                {site.onlineExpectations.map((item) => (
+                  <div className="expectation-pill" key={item}>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
         </div>
       </section>
     ),
-    expectations: (
-      <section className="section">
-        <div className="page-shell two-column">
-          <article className="surface-card">
-            <div className="section-card-heading">
-              <div className="soft-icon">
-                <ClipboardList size={22} />
-              </div>
-              <h3>{site.headings.onlineExpectationsTitle}</h3>
+    educator: (
+      <section aria-labelledby="educator-title" className="section educator-section" id="educator">
+        <div className="page-shell">
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Adults supporting learners</p>
+              <h2 id="educator-title">{site.headings.educatorTitle}</h2>
             </div>
-            <div className="pill-grid">
-              {site.onlineExpectations.map((item) => (
-                <div className="expectation-pill" key={item}>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </article>
+            <p className="section-caption">{site.headings.educatorCaption}</p>
+          </div>
 
-          <article className="accent-card">
-            <div className="section-card-heading">
-              <div className="soft-icon">
-                <UserRound size={22} />
-              </div>
-              <div>
-                <h3>{site.headings.phraseTitle}</h3>
-                <p>{site.headings.phraseCaption}</p>
-              </div>
-            </div>
-            <div className="stack-list">
-              {site.supportPhrases.map((phrase) => (
-                <div className="quote-card" key={phrase.text}>
-                  "{phrase.text}"
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
-    ),
-    work: (
-      <section className="section">
-        <div className="page-shell two-column">
-          <article className="surface-quiet-card">
-            <div className="section-card-heading">
-              <div className="soft-icon">
-                <Sparkles size={22} />
-              </div>
-              <h3>{site.headings.workTitle}</h3>
-            </div>
-            <div className="stack-list">
-              {site.supportBullets.map((item) => (
-                <div className="support-block" key={item}>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+          <div className="educator-grid">
+            {site.educatorCards.map((card) => (
+              <article className="surface-card educator-card" key={card.title}>
+                <h3>{card.title}</h3>
+                <p className="educator-summary">{card.summary}</p>
+                <ul className="plain-list">
+                  {card.steps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
 
-          <article className="ink-card">
-            <div className="section-card-heading">
-              <div className="soft-icon inverse">
-                <Moon size={22} />
-              </div>
-              <h3>{site.headings.wellbeingTitle}</h3>
-            </div>
-            <div className="stack-list">
-              {site.wellbeingHabits.map((item) => (
-                <div className="ink-line" key={item}>
-                  <p>{item}</p>
+          <div className="two-column lower-grid">
+            <article className="accent-card">
+              <div className="section-card-heading">
+                <div className="soft-icon">
+                  <Users aria-hidden="true" size={22} />
                 </div>
-              ))}
-            </div>
-          </article>
+                <div>
+                  <h3>{site.headings.accessibilityTitle}</h3>
+                  <p>{site.headings.accessibilityCaption}</p>
+                </div>
+              </div>
+              <div className="stack-list">
+                {site.accessibilityFeatures.map((feature) => (
+                  <div className="accessibility-card" key={feature.title}>
+                    <strong>{feature.title}</strong>
+                    <p>{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="surface-card">
+              <div className="section-card-heading">
+                <div className="soft-icon">
+                  <Moon aria-hidden="true" size={22} />
+                </div>
+                <h3>{site.headings.wellbeingTitle}</h3>
+              </div>
+              <div className="stack-list">
+                {site.wellbeingHabits.map((item) => (
+                  <div className="check-line" key={item}>
+                    <CheckCircle2 aria-hidden="true" size={18} />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
         </div>
       </section>
     ),
     wellbeing: (
-      <section className="section-alt support-page">
+      <section aria-labelledby="wellbeing-title" className="section-alt support-page" id="wellbeing">
         <div className="page-shell">
           <div className="section-heading centered">
-            <h2>{site.headings.supportPageTitle}</h2>
+            <h2 id="wellbeing-title">{site.headings.supportPageTitle}</h2>
             <p>{site.headings.supportPageIntro}</p>
           </div>
 
@@ -302,27 +455,6 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
             </article>
 
             <article className="surface-card">
-              <h3>Support for learning</h3>
-              <ul className="plain-list">
-                {site.supportBullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="contact-list compact">
-                {site.supportContacts.map((contact) => (
-                  <div key={contact.label} className="contact-row">
-                    <strong>{contact.label}</strong>
-                    {contact.email ? (
-                      <a href={`mailto:${contact.email}`}>{contact.value}</a>
-                    ) : (
-                      <span>{contact.value}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="surface-card">
               <h3>Helpful resources</h3>
               <div className="resource-list">
                 {site.wellbeingResources.map((resource) => (
@@ -335,6 +467,9 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
                   >
                     <strong>{resource.title}</strong>
                     <span>{resource.description}</span>
+                    <span className="external-label">
+                      {resource.href.startsWith("http") ? "Opens external resource" : "Open resource"}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -358,9 +493,30 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
 
   return (
     <div className="site-theme" style={toThemeStyle(site.theme)}>
-      {site.sectionOrder.map((sectionKey) => (
-        <div key={sectionKey}>{sections[sectionKey]}</div>
-      ))}
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+      <header className="site-header">
+        <div className="page-shell header-shell">
+          <a className="site-mark" href="#top">
+            <School aria-hidden="true" size={18} />
+            <span>{site.shortName}</span>
+          </a>
+          <nav aria-label="Primary" className="site-nav">
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      <main id="main-content">
+        {site.sectionOrder.map((sectionKey) => (
+          <div key={sectionKey}>{sections[sectionKey]}</div>
+        ))}
+      </main>
     </div>
   );
 }

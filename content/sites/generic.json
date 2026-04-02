@@ -2,52 +2,87 @@
   "siteKey": "generic",
   "siteName": "Distance Learning Support Hub",
   "shortName": "Remote Learning Hub",
-  "audience": "Students and families in distance learning communities",
-  "sectionOrder": ["hero", "support", "today", "expectations", "work", "wellbeing", "footer"],
+  "audience": "Students, educators, and families in distance learning communities",
+  "sectionOrder": ["hero", "journeys", "support", "today", "educator", "wellbeing", "footer"],
   "hero": {
-    "eyebrow": "Distance Learning Hub",
-    "title": "Remote learning works best when the next step feels small and clear.",
-    "subtitle": "This site gives students a calm place to get organised, ask for support, and keep moving through the school day online.",
-    "badgeWords": ["Stay steady", "Ask early", "One step", "Keep going"],
-    "primaryCtaLabel": "Find support",
+    "eyebrow": "Distance Learning Support",
+    "title": "Remote learning works better when help is calm, visible, and immediate.",
+    "subtitle": "This site helps learners find the next step quickly and gives educators and families a clearer way to support without adding pressure.",
+    "badgeWords": ["Find help fast", "Reduce overload", "Support the next step", "Keep people connected"],
+    "primaryCtaLabel": "Find student support",
     "primaryCtaTarget": "#support",
-    "secondaryCtaLabel": "Plan your day",
-    "secondaryCtaTarget": "#today",
-    "quickStartTitle": "Start here",
-    "quickStartSubtitle": "A simple first five minutes",
+    "secondaryCtaLabel": "Support a learner",
+    "secondaryCtaTarget": "#educator",
+    "quickStartTitle": "Start with what is true right now",
+    "quickStartSubtitle": "A low-pressure first step",
     "quickStartSteps": [
-      "Open today's lesson or task list",
-      "Write down the first small action",
-      "Start before you feel fully ready"
+      "Choose the route that matches the current problem.",
+      "Use only the section you need.",
+      "Reach out to a person if the barrier is bigger than the task."
     ],
-    "quickStartNote": "The goal is progress, not perfection."
+    "quickStartNote": "The goal is orientation first, then progress."
   },
+  "journeyCards": [
+    {
+      "id": "help-now",
+      "title": "I am a learner and need help now",
+      "description": "Go to the support choices, reduce overload, and find the right words or contact route.",
+      "target": "#support",
+      "audience": "Students",
+      "icon": "support"
+    },
+    {
+      "id": "plan-day",
+      "title": "I want to make the day manageable",
+      "description": "See what matters today, how remote learning usually works, and what routines help most.",
+      "target": "#today",
+      "audience": "Students",
+      "icon": "calendar"
+    },
+    {
+      "id": "support-learner",
+      "title": "I am a teacher, parent, or tutor",
+      "description": "Use practical guidance for support, escalation, and adapting remote learning for additional needs.",
+      "target": "#educator",
+      "audience": "Adults supporting learners",
+      "icon": "staff"
+    }
+  ],
   "headings": {
+    "journeyTitle": "Start with the need, not the whole site",
+    "journeyCaption": "Different users arrive with different levels of stress and responsibility. Route them quickly to the right support.",
     "supportEyebrow": "Student support",
     "supportTitle": "What do you need right now?",
-    "supportCaption": "Choose the support card that matches the moment.",
-    "dayTitle": "How to structure the day",
+    "supportCaption": "Choose the closest match. Read one panel only, then act on the next step.",
+    "supportTeamTitle": "Need a person to help?",
+    "supportTeamCaption": "Use visible support routes before a learner disappears into silence or overload.",
+    "dayTitle": "How to structure the remote day",
     "lessonTitle": "How online learning usually works",
-    "onlineExpectationsTitle": "Shared expectations",
-    "phraseTitle": "Words students can use",
-    "phraseCaption": "Short phrases that make it easier to ask for help early.",
-    "workTitle": "How to make remote learning work",
-    "wellbeingTitle": "Looking after your wellbeing",
-    "supportPageTitle": "Support and wellbeing",
-    "supportPageIntro": "Distance learning can be demanding, and support should be easy to find."
+    "phraseTitle": "Words learners can use",
+    "phraseCaption": "Simple scripts lower the barrier to asking for help.",
+    "routineTitle": "What helps remote learning work",
+    "routineCaption": "The aim is steady participation, not performing calm while struggling.",
+    "educatorTitle": "For teachers, tutors, parents, and carers",
+    "educatorCaption": "These sections support adults who are helping learners regulate, rejoin, or access work more effectively.",
+    "accessibilityTitle": "Accessibility and additional needs",
+    "accessibilityCaption": "Support improves when language is lighter, choices are clearer, and access routes are flexible.",
+    "wellbeingTitle": "Wellbeing and support",
+    "supportPageTitle": "When the day is becoming too much",
+    "supportPageIntro": "Keep regulation, contact, and safety visible alongside academic guidance."
   },
   "helperCards": [
     {
-      "id": "time",
-      "title": "I keep missing the start",
-      "icon": "timer",
-      "tone": "indigo",
+      "id": "overwhelmed",
+      "title": "I feel overwhelmed",
+      "icon": "heart",
+      "tone": "rose",
       "steps": [
-        "Set a reminder before each lesson.",
-        "Keep your timetable visible.",
-        "Check what comes next before one lesson ends."
+        "Pause and breathe more slowly.",
+        "Look away from the full to-do list.",
+        "Choose one small action only.",
+        "Ask for help if the task still feels too big."
       ],
-      "note": "A visible routine makes the day feel easier to manage."
+      "note": "Start by making the demand smaller."
     },
     {
       "id": "focus",
@@ -55,131 +90,211 @@
       "icon": "focus",
       "tone": "emerald",
       "steps": [
-        "Work for five minutes.",
+        "Close extra tabs.",
         "Put your phone away.",
-        "Close tabs you do not need.",
-        "Return to one clear task."
+        "Set a short timer.",
+        "Work only on the first instruction."
       ],
-      "note": "Small focus blocks build momentum."
+      "note": "Small attention windows still count."
     },
     {
-      "id": "support",
-      "title": "I need help",
-      "icon": "support",
+      "id": "start",
+      "title": "I cannot get started",
+      "icon": "timer",
+      "tone": "indigo",
+      "steps": [
+        "Open the lesson or task.",
+        "Write down the first action in your own words.",
+        "Do that one step only.",
+        "Contact someone if the first step is still unclear."
+      ],
+      "note": "Starting is often harder than continuing."
+    },
+    {
+      "id": "understand",
+      "title": "I do not understand the task",
+      "icon": "book",
+      "tone": "violet",
+      "steps": [
+        "Read the instruction out loud.",
+        "Find one word you recognise.",
+        "Ask what the first step is.",
+        "Request a smaller chunk if needed."
+      ],
+      "note": "Clarity often comes after asking one precise question."
+    },
+    {
+      "id": "reader",
+      "title": "Reading on screen is hard",
+      "icon": "listen",
+      "tone": "cyan",
+      "steps": [
+        "Use read-aloud or text-to-speech tools.",
+        "Read one line at a time.",
+        "Ask for instructions in smaller parts.",
+        "Use audio, verbal explanation, or visual structure where possible."
+      ],
+      "note": "Different access routes are still valid learning routes."
+    },
+    {
+      "id": "help",
+      "title": "I need an adult to help me",
+      "icon": "message",
       "tone": "teal",
       "steps": [
-        "Message your teacher or learning mentor.",
-        "Say exactly where you are stuck.",
-        "Ask for the first step, not the whole answer."
+        "Message the right teacher, tutor, or learning support contact.",
+        "Describe the problem in one sentence.",
+        "Say whether the barrier is stress, access, understanding, or time."
       ],
-      "note": "Early questions prevent bigger stress later."
-    },
-    {
-      "id": "wellbeing",
-      "title": "I feel stressed",
-      "icon": "heart",
-      "tone": "blue",
-      "steps": [
-        "Pause for one slow breath.",
-        "Stand up and stretch.",
-        "Notice one thing you can do next."
-      ],
-      "note": "Reset first, then return."
+      "note": "Support works best when it is explicit and early."
     }
   ],
   "dayExpectations": [
-    "Start each lesson or task on time if you can.",
     "Check the main learning platform daily.",
-    "Complete work in manageable chunks.",
-    "Ask for help before stress builds up.",
-    "Keep a simple routine for breaks, food, and movement."
+    "Use a visible routine for lessons, breaks, and tasks.",
+    "Break work into manageable chunks.",
+    "Communicate early when something is becoming a barrier.",
+    "Rejoining matters more than catching up perfectly."
   ],
   "lessonRules": [
-    "Teachers may use a mix of live teaching, posted tasks, email, or chat.",
-    "Read instructions slowly before you begin.",
-    "Keep track of lesson times and deadlines.",
-    "Use one main space to store notes and tasks."
+    "Online learning may include live teaching, posted tasks, messages, or email.",
+    "Read the newest instruction first.",
+    "Keep one clear place for timetables, deadlines, and notes.",
+    "Use contact routes early if a learner cannot access the task or session."
   ],
   "onlineExpectations": [
-    "Show up ready to learn.",
-    "Follow instructions respectfully.",
-    "Keep communication kind and clear.",
-    "Meet deadlines where possible.",
-    "Let staff know early if something is getting in the way."
+    "Show up ready to learn where possible.",
+    "Communicate respectfully and clearly.",
+    "Use support routes before stress becomes withdrawal.",
+    "Aim for steady participation, not perfection."
   ],
   "supportPhrases": [
     { "text": "I am not sure what the first step is." },
-    { "text": "Could you explain that another way?" },
-    { "text": "I need help getting started." }
+    { "text": "Could you make that smaller or clearer?" },
+    { "text": "I am overwhelmed and need help to start." },
+    { "text": "I cannot access this in the way it is written." }
   ],
   "supportBullets": [
-    "Break tasks into manageable steps",
-    "Build routines and organisation",
-    "Find the right contact for support",
-    "Keep remote learning sustainable"
+    "Reduce cognitive load before repeating instructions.",
+    "Make routines and timing visible.",
+    "Keep contact routes obvious and human.",
+    "Prefer one clear next step over long lists."
   ],
   "wellbeingHabits": [
-    "Sleep well when you can.",
-    "Eat and drink regularly.",
-    "Move between lessons.",
-    "Take short screen breaks.",
-    "Do something calming after study time."
+    "Keep a predictable rhythm for sleep, meals, and breaks.",
+    "Move between sessions when possible.",
+    "Step away from the screen before overload builds.",
+    "Treat rest and regulation as part of learning."
   ],
   "wellbeingResetSteps": [
-    "Breathe in slowly.",
-    "Breathe out slowly.",
-    "Relax your shoulders.",
-    "Choose the next small task."
+    "Slow the breath down.",
+    "Relax the shoulders.",
+    "Notice what the body needs first.",
+    "Choose one action or one person to contact."
   ],
   "wellbeingContacts": [
     {
       "label": "Pastoral support",
-      "value": "Add the right pastoral or student support contact here"
+      "value": "Add the right pastoral or student-support contact here"
     },
     {
       "label": "Learning support",
-      "value": "Add the local support email here"
+      "value": "Add the local support contact here"
     }
   ],
   "wellbeingResources": [
     {
       "title": "Breathing exercise",
-      "description": "Replace with a local wellbeing video or breathing guide.",
+      "description": "Replace with a trusted local regulation or breathing resource.",
       "href": "https://example.com/wellbeing-breathing"
     },
     {
       "title": "Movement break",
-      "description": "Replace with a short reset or stretch resource.",
+      "description": "Replace with a short stretching or reset resource.",
       "href": "https://example.com/wellbeing-movement"
     }
   ],
   "supportContacts": [
     {
-      "label": "Learning support email",
-      "value": "Add your organisation's support email"
+      "label": "Learning support",
+      "value": "Add your organisation's support route here"
     },
     {
-      "label": "Teacher support",
+      "label": "Teacher or tutor",
       "value": "Add your preferred teacher contact route"
+    },
+    {
+      "label": "Pastoral lead",
+      "value": "Add the right wellbeing or pastoral escalation route"
+    }
+  ],
+  "educatorCards": [
+    {
+      "title": "When a learner is dysregulated",
+      "summary": "Reduce demand first. A regulated learner can re-engage more effectively than a pressured one.",
+      "steps": [
+        "Acknowledge the stress without escalating it.",
+        "Offer one clear next step.",
+        "Reduce reading or task volume temporarily.",
+        "Reconnect the learner with the right support route if the barrier is emotional."
+      ]
+    },
+    {
+      "title": "When a learner is disengaging",
+      "summary": "Treat silence, lateness, or repeated absence as information, not just non-compliance.",
+      "steps": [
+        "Check for access, anxiety, executive function, and understanding barriers.",
+        "Make the re-entry step simple and achievable.",
+        "Use support routes early rather than after prolonged absence.",
+        "Avoid framing rejoining as failure."
+      ]
+    },
+    {
+      "title": "When additional needs affect access",
+      "summary": "Adapt the route into the work, not just the encouragement around it.",
+      "steps": [
+        "Shorten instructions and separate steps clearly.",
+        "Offer read-aloud, visual chunking, or verbal restatement.",
+        "Keep expectations consistent but presentation flexible.",
+        "Distinguish between motivation issues and access issues."
+      ]
+    }
+  ],
+  "accessibilityFeatures": [
+    {
+      "title": "Lower the reading burden",
+      "description": "Use shorter blocks, plain language, and one action at a time."
+    },
+    {
+      "title": "Offer more than one access route",
+      "description": "Support text, audio, visual structure, and spoken clarification wherever possible."
+    },
+    {
+      "title": "Keep navigation predictable",
+      "description": "Make it easy to find urgent help, daily routine guidance, and adult support without scanning the full site."
+    },
+    {
+      "title": "Make help scriptable",
+      "description": "Learners often need exact words they can reuse when they are stressed or unsure."
     }
   ],
   "footer": {
-    "title": "Keep the next step small.",
-    "text": "Remote learning gets easier when support is visible and the day is broken into manageable actions.",
-    "note": "Use Codex to tailor this version for a school, trust, or community by editing this content file."
+    "title": "Good support lowers the barrier before it raises the expectation.",
+    "text": "A useful remote-learning site should help students, educators, and families orient quickly and act on the next right step.",
+    "note": "Use Codex to adapt these content files for your own school, trust, or learning community."
   },
   "theme": {
     "fontFamily": "Humanist",
-    "pageBackground": "#f8fafc",
+    "pageBackground": "#f7faf9",
     "surface": "#ffffff",
-    "surfaceAlt": "#eff6ff",
-    "text": "#0f172a",
-    "mutedText": "#475569",
-    "primary": "#0369a1",
-    "primaryDark": "#0f4c81",
-    "primarySoft": "#dbeafe",
-    "heroFrom": "#164e63",
-    "heroTo": "#0f172a",
-    "heroGlow": "#67e8f9"
+    "surfaceAlt": "#eef7f5",
+    "text": "#11212b",
+    "mutedText": "#4b606d",
+    "primary": "#0f5f68",
+    "primaryDark": "#0c4b52",
+    "primarySoft": "#d7ece9",
+    "heroFrom": "#17363b",
+    "heroTo": "#10212b",
+    "heroGlow": "#8ecfd1"
   }
 }

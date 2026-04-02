@@ -5,10 +5,10 @@ export type SiteKey = (typeof siteKeys)[number];
 
 export const sectionKeys = [
   "hero",
+  "journeys",
   "support",
   "today",
-  "expectations",
-  "work",
+  "educator",
   "wellbeing",
   "footer",
 ] as const;
@@ -53,6 +53,17 @@ export const heroSchema = z
     quickStartSubtitle: shortTextSchema,
     quickStartSteps: z.array(shortTextSchema).min(2).max(5),
     quickStartNote: safeTextSchema,
+  })
+  .strict();
+
+export const journeyCardSchema = z
+  .object({
+    id: shortTextSchema,
+    title: shortTextSchema,
+    description: safeTextSchema,
+    target: linkSchema,
+    audience: shortTextSchema,
+    icon: z.enum(["support", "calendar", "staff"]),
   })
   .strict();
 
@@ -111,17 +122,40 @@ export const footerSchema = z
   })
   .strict();
 
+export const educatorCardSchema = z
+  .object({
+    title: shortTextSchema,
+    summary: safeTextSchema,
+    steps: z.array(safeTextSchema).min(2).max(6),
+  })
+  .strict();
+
+export const accessibilityFeatureSchema = z
+  .object({
+    title: shortTextSchema,
+    description: safeTextSchema,
+  })
+  .strict();
+
 export const sectionHeadingSchema = z
   .object({
+    journeyTitle: shortTextSchema,
+    journeyCaption: safeTextSchema,
     supportEyebrow: shortTextSchema,
     supportTitle: shortTextSchema,
     supportCaption: safeTextSchema,
+    supportTeamTitle: shortTextSchema,
+    supportTeamCaption: safeTextSchema,
     dayTitle: shortTextSchema,
     lessonTitle: shortTextSchema,
-    onlineExpectationsTitle: shortTextSchema,
     phraseTitle: shortTextSchema,
     phraseCaption: safeTextSchema,
-    workTitle: shortTextSchema,
+    routineTitle: shortTextSchema,
+    routineCaption: safeTextSchema,
+    educatorTitle: shortTextSchema,
+    educatorCaption: safeTextSchema,
+    accessibilityTitle: shortTextSchema,
+    accessibilityCaption: safeTextSchema,
     wellbeingTitle: shortTextSchema,
     supportPageTitle: shortTextSchema,
     supportPageIntro: safeTextSchema,
@@ -136,6 +170,7 @@ export const siteDefinitionSchema = z
     audience: shortTextSchema,
     sectionOrder: z.array(z.enum(sectionKeys)).length(sectionKeys.length),
     hero: heroSchema,
+    journeyCards: z.array(journeyCardSchema).min(3).max(4),
     headings: sectionHeadingSchema,
     helperCards: z.array(helperCardSchema).min(4).max(12),
     dayExpectations: z.array(safeTextSchema).min(3).max(8),
@@ -148,6 +183,8 @@ export const siteDefinitionSchema = z
     wellbeingContacts: z.array(contactSchema).min(1).max(6),
     wellbeingResources: z.array(resourceLinkSchema).min(1).max(6),
     supportContacts: z.array(contactSchema).min(1).max(6),
+    educatorCards: z.array(educatorCardSchema).min(2).max(6),
+    accessibilityFeatures: z.array(accessibilityFeatureSchema).min(2).max(6),
     footer: footerSchema,
     theme: themeTokenSchema,
   })
