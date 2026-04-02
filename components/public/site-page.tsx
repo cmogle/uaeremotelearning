@@ -358,7 +358,7 @@ export function SitePage({ site: unsafeSite }: SitePageProps) {
         </div>
 
         <div className="adult-summary-card">
-          <strong>Student-first note</strong>
+          <strong>How to use this section</strong>
           <p>
             This adult view is here to help you reduce barriers, support regulation, and make re-entry easier without overwhelming the learner.
           </p>

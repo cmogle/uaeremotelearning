@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "UAE Remote Learning",
-  description: "A shared Next.js site for Jumeirah College and generic distance-learning resources.",
+  description: "Calm, accessible remote-learning guidance for students and the adults supporting them.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
