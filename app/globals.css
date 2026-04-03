@@ -858,3 +858,345 @@ button:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+.director-shell {
+  background:
+    radial-gradient(circle at top right, rgb(17 95 104 / 0.12), transparent 34%),
+    linear-gradient(180deg, #f8fbfb, #f3f6f8 20rem, #eef3f5);
+  color: #10212b;
+  min-height: 100vh;
+}
+
+.director-page {
+  min-height: 100vh;
+}
+
+.director-hero,
+.director-section {
+  padding: 4rem 0;
+}
+
+.director-section-alt {
+  background: rgb(255 255 255 / 0.54);
+  border-top: 1px solid rgb(16 33 43 / 0.06);
+  border-bottom: 1px solid rgb(16 33 43 / 0.06);
+}
+
+.director-hero-grid,
+.director-link-grid,
+.director-workspace-grid,
+.director-response-grid,
+.director-support-grid,
+.director-boundary-grid {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.director-hero-grid {
+  align-items: start;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+.director-kicker {
+  align-items: center;
+  background: rgb(17 95 104 / 0.09);
+  border-radius: 999px;
+  color: #0f5f68;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  letter-spacing: 0.06em;
+  padding: 0.7rem 1rem;
+  text-transform: uppercase;
+}
+
+.director-hero-copy h1 {
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  margin: 1rem 0;
+  max-width: 11ch;
+}
+
+.director-intro {
+  color: #425563;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 42rem;
+}
+
+.director-chat-stack {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.7rem;
+  max-width: 44rem;
+}
+
+.director-bubble {
+  border-radius: 24px;
+  line-height: 1.65;
+  padding: 1rem 1.1rem;
+}
+
+.director-bubble-user {
+  background: #16383b;
+  color: white;
+  justify-self: start;
+  max-width: 33rem;
+}
+
+.director-bubble-guide {
+  background: white;
+  box-shadow: 0 16px 42px rgb(15 23 42 / 0.08);
+  color: #233542;
+  justify-self: end;
+  max-width: 37rem;
+}
+
+.director-summary-card,
+.director-scenario-panel,
+.director-triage-card,
+.director-boundary-card,
+.director-workspace-card {
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 18px 48px rgb(15 23 42 / 0.08);
+  padding: 1.4rem;
+}
+
+.director-summary-card h2,
+.director-section-heading h2,
+.director-panel-header h3,
+.director-boundary-card h3,
+.director-check-card h4 {
+  margin: 0;
+}
+
+.director-summary-card h2,
+.director-section-heading h2 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.director-number-list {
+  display: grid;
+  gap: 0.8rem;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.director-summary-note {
+  background: #edf7f6;
+  border-radius: 18px;
+  color: #0c4b52;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+  padding: 1rem;
+}
+
+.director-section-heading {
+  margin-bottom: 1.35rem;
+}
+
+.director-link-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.director-link-card,
+.director-tab,
+.director-support-button {
+  align-items: center;
+  border-radius: 22px;
+  display: inline-flex;
+  gap: 0.65rem;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.director-link-card {
+  background: white;
+  box-shadow: 0 14px 36px rgb(15 23 42 / 0.06);
+  color: #10212b;
+  font-weight: 700;
+  padding: 1rem 1.05rem;
+}
+
+.director-workspace-grid,
+.director-response-grid,
+.director-boundary-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.35rem;
+}
+
+.director-workspace-card strong,
+.director-check-card h4 {
+  color: #10212b;
+}
+
+.director-workspace-card p,
+.director-panel-header p,
+.director-followup-text,
+.director-boundary-card p {
+  color: #4a5e6c;
+  line-height: 1.65;
+}
+
+.director-tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.3rem;
+}
+
+.director-tab,
+.director-support-button,
+.director-copy-button {
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.director-tab,
+.director-support-button {
+  background: rgb(255 255 255 / 0.72);
+  color: #405765;
+  padding: 0.95rem 1rem;
+}
+
+.director-tab.active,
+.director-support-button.active {
+  background: #16383b;
+  color: white;
+}
+
+.director-scenario-panel,
+.director-support-grid {
+  margin-top: 1.4rem;
+}
+
+.director-panel-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.9rem;
+}
+
+.director-icon-badge {
+  align-items: center;
+  background: #e2f1ef;
+  border-radius: 18px;
+  color: #0f5f68;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+
+.director-icon-badge.warning {
+  background: #fff5e8;
+  color: #b45309;
+}
+
+.director-icon-badge.success {
+  background: #e9f7ef;
+  color: #0f766e;
+}
+
+.director-copy-card,
+.director-check-card {
+  background: #f7fafb;
+  border-radius: 24px;
+  margin-top: 1.15rem;
+  padding: 1.05rem;
+}
+
+.director-copy-card.compact {
+  margin-top: 1rem;
+}
+
+.director-copy-header {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.director-copy-button {
+  align-items: center;
+  background: #16383b;
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  gap: 0.45rem;
+  min-height: 2.6rem;
+  padding: 0.6rem 0.9rem;
+}
+
+.director-prompt-block {
+  background: white;
+  border-radius: 20px;
+  color: #18313d;
+  font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin: 0.95rem 0 0;
+  overflow-x: auto;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.director-mini-copy {
+  margin-top: 0.85rem;
+}
+
+.director-followup-text {
+  background: white;
+  border-radius: 18px;
+  margin: 0.85rem 0 0;
+  padding: 1rem;
+}
+
+.director-support-grid {
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+}
+
+.director-support-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.director-boundary-card ul,
+.director-check-card ul {
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .director-hero-grid,
+  .director-support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .director-hero,
+  .director-section {
+    padding: 3rem 0;
+  }
+
+  .director-copy-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .director-copy-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .director-tab-row {
+    display: grid;
+  }
+}

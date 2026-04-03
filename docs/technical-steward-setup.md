@@ -51,6 +51,19 @@ Recommended default flow:
 5. PR merges to `main`.
 6. Vercel deploys to production.
 
+## What To Hand The Content Director
+
+Give the sponsor one browser-first starting point:
+
+- the deployed `/content-director` URL
+
+Tell her this is her working guide for:
+
+- what to ask Codex
+- how to review previews
+- what to do when something looks wrong
+- when to escalate to the steward
+
 ## Local Steward Commands
 
 ```bash

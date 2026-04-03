@@ -2,6 +2,12 @@
 
 This project is set up so the sponsor can act as **content director**, not as a developer.
 
+Start here if this is your first time using the project:
+
+- [`content-director-onboarding.md`](./content-director-onboarding.md)
+- [`prompt-library.md`](./prompt-library.md)
+- [`troubleshooting-and-escalation.md`](./troubleshooting-and-escalation.md)
+
 ## Your Role
 
 - Explain what should change and why.
@@ -24,6 +30,8 @@ You are **not** expected to:
 4. Review the Vercel preview linked from the PR.
 5. Approve the change or ask for a revision.
 6. A technical steward merges structural or risky work.
+
+For a fuller first-day setup and review routine, use [`content-director-onboarding.md`](./content-director-onboarding.md).
 
 ## How To Request Good Changes
 
@@ -71,3 +79,5 @@ Ask for a **structural change** if the request affects:
 - deployment behavior
 - schema or content model changes
 - accessibility behavior beyond ordinary copy/layout adjustments
+
+If something goes wrong or you are unsure what kind of request you are making, use [`troubleshooting-and-escalation.md`](./troubleshooting-and-escalation.md).

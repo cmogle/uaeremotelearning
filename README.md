@@ -22,7 +22,11 @@ There is no in-app CMS or admin panel. The safe editing surface is **Codex + Git
 
 Use these docs first:
 
+- Bookmark `/content-director` for the non-technical content director workflow
+- [`docs/content-director-onboarding.md`](./docs/content-director-onboarding.md)
 - [`docs/author-playbook.md`](./docs/author-playbook.md)
+- [`docs/prompt-library.md`](./docs/prompt-library.md)
+- [`docs/troubleshooting-and-escalation.md`](./docs/troubleshooting-and-escalation.md)
 - [`docs/operating-model.md`](./docs/operating-model.md)
 - [`docs/technical-steward-setup.md`](./docs/technical-steward-setup.md)
 
