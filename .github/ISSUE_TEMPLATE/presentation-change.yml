@@ -1,0 +1,43 @@
+name: Presentation change
+description: Request visual, layout, or interaction changes that stay inside the current content model.
+title: "[Presentation] "
+labels:
+  - presentation
+body:
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Which site does this affect?
+      options:
+        - Jumeirah College
+        - Generic
+        - Both variants
+    validations:
+      required: true
+  - type: textarea
+    id: requested_change
+    attributes:
+      label: What should feel different?
+      description: Describe the presentation change in plain language.
+      placeholder: Make the student route cards easier to scan on mobile and calmer for anxious learners.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should improve for the visitor?
+      placeholder: Students should find the right route faster without feeling overwhelmed by the page.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility considerations
+      description: Note keyboard, reading-load, color, contrast, focus, or motion requirements.
+      placeholder: Keep strong focus states, avoid weak contrast, and do not rely on motion to explain meaning.
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints or design direction
+      description: Mention brand, tone, or specific things to avoid.
+      placeholder: Avoid generic AI-looking cards or decorative gradients that reduce clarity.

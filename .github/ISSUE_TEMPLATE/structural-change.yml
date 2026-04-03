@@ -1,0 +1,44 @@
+name: Structural change
+description: Request navigation, information architecture, schema, or workflow changes that need technical-steward review.
+title: "[Structural] "
+labels:
+  - structural
+body:
+  - type: dropdown
+    id: impact
+    attributes:
+      label: What kind of structural change is this?
+      options:
+        - Navigation or information architecture
+        - New section or data-model change
+        - Routing or deployment behavior
+        - Accessibility behavior
+        - Other structural change
+    validations:
+      required: true
+  - type: textarea
+    id: requested_change
+    attributes:
+      label: What needs to change?
+      description: Explain the structural change in plain language.
+      placeholder: Add a separate adult landing path with its own first-screen navigation and reduced overlap with student content.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this needed?
+      placeholder: Adult users are getting lost in student-first content and need a clearer secondary route.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks or constraints
+      description: Note anything that could break, confuse users, or require special care.
+      placeholder: Must not increase reading load for students or break the default student-first journey.
+  - type: textarea
+    id: review_notes
+    attributes:
+      label: What should the technical steward verify?
+      placeholder: Confirm student mode remains default, keyboard flow still works, and both variants build and render correctly.

@@ -1,0 +1,37 @@
+name: Validate Sites
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build (${{ matrix.default_site_key }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        default_site_key:
+          - jumeirah-college
+          - generic
+
+    env:
+      DEFAULT_SITE_KEY: ${{ matrix.default_site_key }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run check

@@ -1,0 +1,47 @@
+name: Content change
+description: Request copy, contacts, tone, or emphasis updates without changing the underlying site structure.
+title: "[Content] "
+labels:
+  - content-only
+body:
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Which site does this affect?
+      options:
+        - Jumeirah College
+        - Generic
+        - Both variants
+    validations:
+      required: true
+  - type: textarea
+    id: requested_change
+    attributes:
+      label: What should change?
+      description: Describe the content change in plain language.
+      placeholder: Make the student hero calmer and more reassuring for learners who feel overwhelmed at the start of the day.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should a visitor feel, understand, or do differently after this change?
+      placeholder: Students should understand the next step faster and feel less judged.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility or additional-needs considerations
+      description: Mention any reading-load, regulation, sensory, language, or access needs that should shape the change.
+      placeholder: Keep the wording short, plain, and low-pressure. Avoid long paragraphs.
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Non-negotiables
+      description: Add any names, contact details, phrases, or facts that must stay or must not appear.
+  - type: textarea
+    id: review_notes
+    attributes:
+      label: What should the reviewer check in preview?
+      placeholder: Confirm the Jumeirah version still sounds student-first and no internal/editorial language appears on the page.
