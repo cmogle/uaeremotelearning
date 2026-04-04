@@ -147,6 +147,40 @@ const quickLinks = [
   },
 ] as const;
 
+const workflowSteps = [
+  {
+    title: "1. Describe the visitor problem",
+    text: "Tell Codex what is not working for the student, adult, or site experience. You do not need to explain code.",
+  },
+  {
+    title: "2. Ask Codex to implement it",
+    text: "Use one of the prompts on this page. Always ask Codex to commit, push, and open or update a PR when the change is ready.",
+  },
+  {
+    title: "3. Codex handles Git",
+    text: "Codex makes the file changes, creates the commit, pushes the branch, and opens or updates the pull request. You do not run Git commands yourself.",
+  },
+  {
+    title: "4. Review the PR and preview",
+    text: "Open the pull request and the Vercel preview link. Check desktop and mobile. Decide whether the change feels right for the audience.",
+  },
+  {
+    title: "5. Ask for revisions if needed",
+    text: "If anything is off, reply in plain language. Codex should keep working on the same branch and the same pull request.",
+  },
+  {
+    title: "6. Approve, then let merge happen",
+    text: "When the result looks right, approve it. The technical steward merges structural or risky work, and may also be the default merger while the workflow is new.",
+  },
+  {
+    title: "7. Production updates after merge",
+    text: "Once the pull request is merged, Vercel deploys the update. If the live site looks wrong after that, use the escalation messages below.",
+  },
+] as const;
+
+const implementationPrompt =
+  "Please implement this request in the repo. When the change is ready, commit it, push the branch, and open or update a pull request with a preview link for me to review. If the request is structural or risky, explain that before you proceed.";
+
 function CopyButton({ text, label }: { text: string; label: string }) {
   const [status, setStatus] = useState<"idle" | "copied" | "error">("idle");
 
@@ -213,11 +247,12 @@ export function ContentDirectorGuide() {
               <ol className="director-number-list">
                 <li>Choose the kind of change you want.</li>
                 <li>Copy the ready-made prompt into Codex.</li>
+                <li>Codex commits, pushes, and opens the PR.</li>
                 <li>Review the PR preview on desktop and phone.</li>
                 <li>Approve it or ask for another pass.</li>
               </ol>
               <p className="director-summary-note">
-                You should not need the terminal, local files, or JSON editing.
+                You should not need the terminal, local files, JSON editing, or Git commands.
               </p>
             </aside>
           </div>
@@ -246,7 +281,7 @@ export function ContentDirectorGuide() {
             <div className="director-workspace-grid">
               <article className="director-workspace-card">
                 <strong>Codex</strong>
-                <p>Ask for the change in plain language and paste one of the prompts below.</p>
+                <p>Ask for the change in plain language. Codex is the one that commits and pushes.</p>
               </article>
               <article className="director-workspace-card">
                 <strong>GitHub issue</strong>
@@ -257,10 +292,36 @@ export function ContentDirectorGuide() {
                 <p>Check whether the result feels right. You are reviewing the visitor experience.</p>
               </article>
             </div>
+
+            <div className="director-copy-card">
+              <div className="director-copy-header">
+                <strong>Use this line in most requests</strong>
+                <CopyButton label="Copy workflow line" text={implementationPrompt} />
+              </div>
+              <p className="director-followup-text">{implementationPrompt}</p>
+            </div>
           </div>
         </section>
 
         <section className="director-section director-section-alt">
+          <div className="page-shell">
+            <div className="director-section-heading">
+              <p className="eyebrow">Exact workflow</p>
+              <h2>What happens after Codex makes the changes?</h2>
+            </div>
+
+            <div className="director-workflow-grid">
+              {workflowSteps.map((step) => (
+                <article className="director-workflow-card" key={step.title}>
+                  <strong>{step.title}</strong>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="director-section">
           <div className="page-shell">
             <div className="director-section-heading">
               <p className="eyebrow">Ask Codex</p>
@@ -329,7 +390,7 @@ export function ContentDirectorGuide() {
           </div>
         </section>
 
-        <section className="director-section">
+        <section className="director-section director-section-alt">
           <div className="page-shell">
             <div className="director-section-heading">
               <p className="eyebrow">When something goes wrong</p>
@@ -380,7 +441,7 @@ export function ContentDirectorGuide() {
           </div>
         </section>
 
-        <section className="director-section director-section-alt">
+        <section className="director-section">
           <div className="page-shell">
             <div className="director-section-heading">
               <p className="eyebrow">Safe boundaries</p>

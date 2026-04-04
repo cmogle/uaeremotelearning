@@ -26,10 +26,11 @@ You are **not** expected to:
 
 1. Open a GitHub issue using the right template.
 2. Describe the change in plain language.
-3. Ask Codex to implement the issue.
-4. Review the Vercel preview linked from the PR.
-5. Approve the change or ask for a revision.
-6. A technical steward merges structural or risky work.
+3. Ask Codex to implement the issue and explicitly tell it to commit, push, and open or update the PR.
+4. Codex makes the repo changes and handles Git.
+5. Review the Vercel preview linked from the PR.
+6. Approve the change or ask for a revision on the same PR.
+7. A technical steward merges structural or risky work.
 
 For a fuller first-day setup and review routine, use [`content-director-onboarding.md`](./content-director-onboarding.md).
 

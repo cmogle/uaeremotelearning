@@ -885,6 +885,7 @@ button:focus-visible {
 .director-hero-grid,
 .director-link-grid,
 .director-workspace-grid,
+.director-workflow-grid,
 .director-response-grid,
 .director-support-grid,
 .director-boundary-grid {
@@ -959,7 +960,8 @@ button:focus-visible {
 .director-scenario-panel,
 .director-triage-card,
 .director-boundary-card,
-.director-workspace-card {
+.director-workspace-card,
+.director-workflow-card {
   background: white;
   border-radius: 28px;
   box-shadow: 0 18px 48px rgb(15 23 42 / 0.08);
@@ -1025,6 +1027,7 @@ button:focus-visible {
 }
 
 .director-workspace-grid,
+.director-workflow-grid,
 .director-response-grid,
 .director-boundary-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1032,11 +1035,13 @@ button:focus-visible {
 }
 
 .director-workspace-card strong,
+.director-workflow-card strong,
 .director-check-card h4 {
   color: #10212b;
 }
 
 .director-workspace-card p,
+.director-workflow-card p,
 .director-panel-header p,
 .director-followup-text,
 .director-boundary-card p {

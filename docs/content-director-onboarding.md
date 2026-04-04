@@ -10,6 +10,7 @@ The goal is simple:
 
 - you shape the educational intent
 - Codex handles the repo changes
+- Codex commits and pushes the repo changes
 - GitHub and Vercel show you what changed
 - the technical steward steps in only when needed
 
@@ -73,6 +74,27 @@ If in doubt, start with a GitHub issue and describe the visitor problem. Codex o
 
 ## Your Normal Working Flow
 
+This is the exact default workflow:
+
+1. You describe the visitor problem in plain language.
+2. You ask Codex to implement it.
+3. Codex edits the repo files.
+4. Codex commits the changes.
+5. Codex pushes the branch.
+6. Codex opens or updates a pull request.
+7. You review the PR preview.
+8. If it is not right, you ask Codex to revise the same PR.
+9. If it is right, you approve it.
+10. The technical steward merges structural or risky work, and may also be the default merger while the workflow is new.
+11. Vercel deploys after merge.
+
+Important:
+
+- You do **not** commit changes yourself.
+- You do **not** push branches yourself.
+- You do **not** merge risky work yourself.
+- Your job is to direct, review, and approve.
+
 ### 1. Start from the visitor problem
 
 Write what is wrong in plain language.
@@ -105,6 +127,10 @@ Simple message format:
 
 > Please implement GitHub issue #[number]. Keep the student experience calm, accessible, and easy to scan. Tell me anything you think is risky before you make a structural change.
 
+Add this final sentence in most requests:
+
+> When the change is ready, please commit it, push the branch, and open or update the pull request for me to review.
+
 ### 4. Review the PR preview
 
 Check the preview link on desktop and on your phone.
@@ -128,11 +154,27 @@ Examples:
 - “The adult panel is better, but the contact details need to stay more prominent.”
 - “Please remove the phrase ‘support pathways’ and use simpler language.”
 
+If you want Codex to continue from the same PR, say:
+
+> Please update the existing pull request rather than starting a new one.
+
 ### 6. Let the steward handle structural or risky merges
 
 You do not need to think about branch protection, deployment safety, or build errors.
 
 If the PR changes structure, routing, schema, or accessibility behavior, the technical steward should review before merge.
+
+## Who Commits And Pushes?
+
+The answer should almost always be:
+
+- **Codex commits**
+- **Codex pushes**
+- **Codex opens or updates the pull request**
+- **You review and approve**
+- **The steward merges if the work is risky, structural, or still inside the review-gate period**
+
+This keeps you in the content-director role rather than pushing you into repo management.
 
 ## What You Should Ask Codex For
 

@@ -45,11 +45,13 @@ Keep preview deployments enabled for both projects.
 Recommended default flow:
 
 1. Sponsor opens a GitHub issue.
-2. Codex implements the request in a PR.
-3. Vercel preview is reviewed.
-4. Technical steward approves structural/risky work.
-5. PR merges to `main`.
-6. Vercel deploys to production.
+2. Sponsor asks Codex to implement it and to commit, push, and open or update the PR.
+3. Codex makes the repo changes and handles Git operations.
+4. Vercel preview is reviewed.
+5. Sponsor asks for revisions on the same PR or approves it.
+6. Technical steward approves structural/risky work.
+7. PR merges to `main`.
+8. Vercel deploys to production.
 
 ## What To Hand The Content Director
 
