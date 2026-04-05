@@ -1,69 +1,153 @@
 # UAE Remote Learning
 
-A shared Next.js site for two distance-learning variants:
+This repository now publishes a single Jumeirah College remote-learning site. The canonical baseline is the restored student-facing React content and tone, not the older JSON-driven variant system.
 
-- `jumeirah-college`
-- `generic`
+## Overview
 
-The intended workflow is:
+The public site is a small multi-page Next.js app rooted at `/`:
 
-1. The author works with Codex in this repo.
-2. Codex edits content and styling in the codebase.
-3. Changes are committed and pushed to GitHub.
-4. Vercel deploys from the repo.
+- `/`
+- `/get-help-now`
+- `/school-day`
+- `/wellbeing-support`
 
-There is no in-app admin panel. The repo itself is the authoring surface.
+These pages are the publication baseline. They are designed to stay calm, direct, and easy to scan.
 
-## Where To Edit
+The repository still contains older experimental routes and tooling from earlier architecture work, but they are no longer the source of truth for public content and are not part of the publication plan.
 
-Most content changes should happen in these files:
+## Tech Stack
 
-- [`content/sites/jumeirah-college.json`](./content/sites/jumeirah-college.json)
-- [`content/sites/generic.json`](./content/sites/generic.json)
+- Next.js 16
+- React 19
+- TypeScript
+- `lucide-react` for icons
 
-These JSON files control:
+## Project Structure
 
-- hero copy
-- support cards
-- expectations and wellbeing content
-- contacts and resource links
-- theme tokens such as colors and font family
+```text
+app/
+  layout.tsx                 App metadata and shell
+  page.tsx                   Public home page
+  get-help-now/page.tsx      Student help page
+  school-day/page.tsx        School day and lesson structure page
+  wellbeing-support/page.tsx Wellbeing and support page
+  icon.svg                   Placeholder app icon
+  globals.css                Global reset and focus styles
 
-The shared rendering layer lives here:
+components/public/
+  baseline-site.tsx          Shared public shell and page sections
+  baseline-site.module.css   Public site styling
 
-- [`components/public/site-page.tsx`](./components/public/site-page.tsx)
-- [`lib/site-schema.ts`](./lib/site-schema.ts)
-- [`lib/site-content.ts`](./lib/site-content.ts)
+lib/
+  baseline-site-content.ts   Canonical baseline copy and content lists
 
-## Run Locally
+content/
+  CONTENT_INVENTORY.md       Current student states, contacts, and resources to confirm
+```
+
+## Canonical Content Source
+
+The public site now uses a code-managed baseline:
+
+- [`lib/baseline-site-content.ts`](/Users/finu/Development/UAERemoteLearning/lib/baseline-site-content.ts)
+- [`components/public/baseline-site.tsx`](/Users/finu/Development/UAERemoteLearning/components/public/baseline-site.tsx)
+
+This is deliberate. We are iterating on the baseline directly in code while refining:
+
+- information architecture
+- accessibility
+- content quality
+- imagery and design direction
+
+The current content inventory for later iteration lives here:
+
+- [`content/CONTENT_INVENTORY.md`](/Users/finu/Development/UAERemoteLearning/content/CONTENT_INVENTORY.md)
+
+## Local Development
+
+### Prerequisites
+
+- Node.js `24.14.1`
+- npm
+
+The repo now pins Node in:
+
+- [`.nvmrc`](/Users/finu/Development/UAERemoteLearning/.nvmrc)
+- [`package.json`](/Users/finu/Development/UAERemoteLearning/package.json)
+
+### Install
 
 ```bash
 npm install
+```
+
+### Start the dev server
+
+```bash
 npm run dev
 ```
 
 Open:
 
-- `http://localhost:3000/jumeirah-college`
-- `http://localhost:3000/generic`
+- [http://localhost:3000/](http://localhost:3000/)
+- [http://localhost:3000/get-help-now](http://localhost:3000/get-help-now)
+- [http://localhost:3000/school-day](http://localhost:3000/school-day)
+- [http://localhost:3000/wellbeing-support](http://localhost:3000/wellbeing-support)
 
-## Deployment Model
+### Production build
 
-This repo is designed for GitHub-backed Vercel deployment. A typical setup is:
+```bash
+npm run build
+npm run start
+```
 
-- one Vercel project for the Jumeirah site
-- one Vercel project for the generic site
-- both deployments pointing at this same repository
+## Editing Guide
 
-You can later choose the active site variant per deployment with route strategy, environment-based routing, or separate branch/project configuration if needed.
+### Most common edits
 
-## Codex-Friendly Structure
+Start here for copy, support routes, contacts, and content structure:
 
-The app is deliberately arranged so Codex can safely make natural-language driven edits without reworking the whole site:
+- [`lib/baseline-site-content.ts`](/Users/finu/Development/UAERemoteLearning/lib/baseline-site-content.ts)
 
-- structured site content in JSON
-- shared validated schema
-- shared presentation components
-- single codebase for both variants
+Start here for layout and presentation:
 
-That means prompts like “make the Jumeirah version warmer and more reassuring” or “turn the generic version into a GEMS-wide template” can usually be fulfilled by editing the content JSON and, when needed, a small amount of shared styling.
+- [`components/public/baseline-site.tsx`](/Users/finu/Development/UAERemoteLearning/components/public/baseline-site.tsx)
+- [`components/public/baseline-site.module.css`](/Users/finu/Development/UAERemoteLearning/components/public/baseline-site.module.css)
+
+### Content review notes
+
+The public pages intentionally leave some resource links out until they are confirmed. Track those in:
+
+- [`content/CONTENT_INVENTORY.md`](/Users/finu/Development/UAERemoteLearning/content/CONTENT_INVENTORY.md)
+
+## Deployment
+
+Deployment is GitHub-backed Vercel deployment:
+
+1. Push the publication branch to GitHub.
+2. Let the connected Vercel project build automatically.
+3. Confirm the build passes and the public pages render correctly.
+
+Direct Vercel CLI deployment is not part of the intended workflow.
+
+## Publication Checklist
+
+- `npm run build` passes
+- root route serves the baseline site
+- all public pages are linked from the top navigation
+- email contacts are correct
+- any unconfirmed public resources are either removed or explicitly approved before linking
+- old multi-variant messaging does not appear in the public experience
+
+## Codex Workflow
+
+Project-level guidance for future Codex threads now lives in:
+
+- [`AGENTS.md`](/Users/finu/Development/UAERemoteLearning/AGENTS.md)
+
+That file is the canonical short handoff for:
+
+- what the public baseline is
+- which files are the source of truth
+- which older architecture should stay non-baseline
+- how to treat focused work modes in new threads

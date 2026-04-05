@@ -19,6 +19,38 @@ const linkSchema = z.string().trim().max(240);
 const emailSchema = z.string().trim().email();
 const safeTextSchema = z.string().trim().min(1).max(400);
 const shortTextSchema = z.string().trim().min(1).max(120);
+const longTextSchema = z.string().trim().min(1).max(800);
+
+export const iconNameSchema = z.enum([
+  "timer",
+  "focus",
+  "heart",
+  "eye",
+  "listen",
+  "move",
+  "book",
+  "message",
+  "support",
+  "offline",
+  "friends",
+  "sparkles",
+]);
+export type SupportIconName = z.infer<typeof iconNameSchema>;
+
+export const toneNameSchema = z.enum([
+  "indigo",
+  "emerald",
+  "rose",
+  "sky",
+  "cyan",
+  "amber",
+  "violet",
+  "teal",
+  "orange",
+  "pink",
+  "blue",
+]);
+export type ToneName = z.infer<typeof toneNameSchema>;
 
 export const themeTokenSchema = z
   .object({
@@ -67,25 +99,31 @@ export const journeyCardSchema = z
   })
   .strict();
 
+export const studentIntentSchema = z
+  .object({
+    id: shortTextSchema,
+    label: shortTextSchema,
+    title: shortTextSchema,
+    reassurance: safeTextSchema,
+    nextStep: safeTextSchema,
+    followUp: safeTextSchema.optional(),
+    script: safeTextSchema.optional(),
+    visualTitle: shortTextSchema,
+    visualItems: z.array(shortTextSchema).min(2).max(5),
+    contactLabel: shortTextSchema,
+    contactValue: shortTextSchema,
+    contactEmail: emailSchema.optional(),
+    icon: iconNameSchema,
+    tone: toneNameSchema,
+  })
+  .strict();
+
 export const helperCardSchema = z
   .object({
     id: shortTextSchema,
     title: shortTextSchema,
-    icon: z.enum([
-      "timer",
-      "focus",
-      "heart",
-      "eye",
-      "listen",
-      "move",
-      "book",
-      "message",
-      "support",
-      "offline",
-      "friends",
-      "sparkles",
-    ]),
-    tone: z.enum(["indigo", "emerald", "rose", "sky", "cyan", "amber", "violet", "teal", "orange", "pink", "blue"]),
+    icon: iconNameSchema,
+    tone: toneNameSchema,
     steps: z.array(safeTextSchema).min(2).max(8),
     note: safeTextSchema,
     extras: z.array(safeTextSchema).max(6).optional(),
@@ -141,6 +179,8 @@ export const sectionHeadingSchema = z
   .object({
     journeyTitle: shortTextSchema,
     journeyCaption: safeTextSchema,
+    intentPanelTitle: shortTextSchema,
+    intentPanelCaption: safeTextSchema,
     supportEyebrow: shortTextSchema,
     supportTitle: shortTextSchema,
     supportCaption: safeTextSchema,
@@ -157,8 +197,13 @@ export const sectionHeadingSchema = z
     accessibilityTitle: shortTextSchema,
     accessibilityCaption: safeTextSchema,
     wellbeingTitle: shortTextSchema,
+    wellbeingCaption: safeTextSchema,
     supportPageTitle: shortTextSchema,
     supportPageIntro: safeTextSchema,
+    adultLinkLabel: shortTextSchema,
+    adultSectionLabel: shortTextSchema,
+    adultSummaryTitle: shortTextSchema,
+    adultSummaryText: longTextSchema,
   })
   .strict();
 
@@ -171,6 +216,7 @@ export const siteDefinitionSchema = z
     sectionOrder: z.array(z.enum(sectionKeys)).length(sectionKeys.length),
     hero: heroSchema,
     journeyCards: z.array(journeyCardSchema).min(3).max(4),
+    studentIntents: z.array(studentIntentSchema).min(4).max(6),
     headings: sectionHeadingSchema,
     helperCards: z.array(helperCardSchema).min(4).max(12),
     dayExpectations: z.array(safeTextSchema).min(3).max(8),
@@ -192,6 +238,7 @@ export const siteDefinitionSchema = z
   .strict();
 
 export type SiteDefinition = z.infer<typeof siteDefinitionSchema>;
+export type StudentIntent = z.infer<typeof studentIntentSchema>;
 
 export function isSiteKey(value: string): value is SiteKey {
   return siteKeys.includes(value as SiteKey);

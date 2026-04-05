@@ -48,9 +48,113 @@
       "icon": "wellbeing"
     }
   ],
+  "studentIntents": [
+    {
+      "id": "overwhelmed",
+      "label": "I feel overwhelmed",
+      "title": "Make the pressure smaller first",
+      "reassurance": "You do not need to win the whole day right now. The goal is to reduce overload until one next step feels manageable again.",
+      "nextStep": "Pause the full list, take one slow breath, and choose one action only.",
+      "followUp": "If the pressure stays high, switch from task-solving to contacting a trusted adult or support lead.",
+      "script": "I am overwhelmed and need help to find the next small step.",
+      "visualTitle": "Calm sequence",
+      "visualItems": [
+        "Look away from the whole list.",
+        "Breathe more slowly.",
+        "Choose one small action.",
+        "Ask for help if it still feels too big."
+      ],
+      "contactLabel": "Pastoral support",
+      "contactValue": "Add the right pastoral or student-support contact here",
+      "icon": "heart",
+      "tone": "rose"
+    },
+    {
+      "id": "start",
+      "label": "I can't get started",
+      "title": "Begin with the easiest visible action",
+      "reassurance": "Starting often feels harder than continuing. Progress usually begins after a tiny first action, not before it.",
+      "nextStep": "Open the task, write the first action in your own words, and do only that one part.",
+      "followUp": "If the first action is still unclear, message the right adult and ask for the next step in a smaller chunk.",
+      "script": "I can see the work, but I need one clearer first step to begin.",
+      "visualTitle": "Start-up pattern",
+      "visualItems": [
+        "Open the lesson or task.",
+        "Find the newest instruction.",
+        "Rewrite the first action simply.",
+        "Do that one action only."
+      ],
+      "contactLabel": "Teacher or tutor",
+      "contactValue": "Add your preferred teacher contact route",
+      "icon": "timer",
+      "tone": "indigo"
+    },
+    {
+      "id": "confused",
+      "label": "I'm confused",
+      "title": "Get clarity before you keep going",
+      "reassurance": "Confusion usually means the route into the task needs to be clearer, smaller, or explained another way.",
+      "nextStep": "Read the instruction out loud, find one word you recognise, and ask what the first step is.",
+      "followUp": "If reading is part of the problem, ask for read-aloud, verbal explanation, or visual chunking.",
+      "script": "I am not sure what the first step is. Could you make it smaller or clearer?",
+      "visualTitle": "Clarity checklist",
+      "visualItems": [
+        "Read the instruction out loud.",
+        "Find one word you know.",
+        "Ask one clear question.",
+        "Start with one small part."
+      ],
+      "contactLabel": "Learning support",
+      "contactValue": "Add your organisation's support route here",
+      "icon": "book",
+      "tone": "violet"
+    },
+    {
+      "id": "calm",
+      "label": "I need calm",
+      "title": "Regulate before trying to perform",
+      "reassurance": "When the body is stressed, the next step is regulation first. Calm support usually works better than more pressure.",
+      "nextStep": "Slow the breath, relax the shoulders, and choose one short reset before returning to the screen.",
+      "followUp": "If you still feel too activated or flat, use a wellbeing or pastoral contact instead of staying stuck alone.",
+      "script": "I need a short reset before I can rejoin properly.",
+      "visualTitle": "Reset pattern",
+      "visualItems": [
+        "Slow the breath down.",
+        "Relax your shoulders.",
+        "Notice what your body needs first.",
+        "Choose one next action."
+      ],
+      "contactLabel": "Wellbeing support",
+      "contactValue": "Add the right wellbeing or pastoral escalation route",
+      "icon": "sparkles",
+      "tone": "cyan"
+    },
+    {
+      "id": "person",
+      "label": "I need a person",
+      "title": "Go straight to a human support route",
+      "reassurance": "Some barriers need a person more than a checklist. Use a human support route early if the day is becoming too hard.",
+      "nextStep": "Send one short message describing the barrier and asking for the next step.",
+      "followUp": "If one contact route does not work quickly enough, try another trusted adult or support lead next.",
+      "script": "I need an adult to help me because this is affecting my day.",
+      "visualTitle": "Message map",
+      "visualItems": [
+        "Say what is wrong in one sentence.",
+        "Name the type of barrier.",
+        "Ask for one next step.",
+        "Follow up with another support contact if needed."
+      ],
+      "contactLabel": "Pastoral lead",
+      "contactValue": "Add the right wellbeing or pastoral escalation route",
+      "icon": "message",
+      "tone": "teal"
+    }
+  ],
   "headings": {
     "journeyTitle": "Start with the need, not the whole site",
     "journeyCaption": "Different users arrive with different levels of stress and responsibility. Route them quickly to the right support.",
+    "intentPanelTitle": "What feels true right now?",
+    "intentPanelCaption": "Choose the closest match. Each path gives one next step, a visual guide, and a person to contact if the barrier is bigger than the task.",
     "supportEyebrow": "Student support",
     "supportTitle": "What do you need right now?",
     "supportCaption": "Choose the closest match. Read one panel only, then act on the next step.",
@@ -67,8 +171,13 @@
     "accessibilityTitle": "Accessibility and additional needs",
     "accessibilityCaption": "Support improves when language is lighter, choices are clearer, and access routes are flexible.",
     "wellbeingTitle": "Wellbeing and support",
+    "wellbeingCaption": "Keep regulation, contact, and emotional support easy to find when the day starts to feel too heavy.",
     "supportPageTitle": "When the day is becoming too much",
-    "supportPageIntro": "Keep regulation, contact, and safety visible alongside academic guidance."
+    "supportPageIntro": "Keep regulation, contact, and safety visible alongside academic guidance.",
+    "adultLinkLabel": "For adults supporting a learner",
+    "adultSectionLabel": "Adult guidance",
+    "adultSummaryTitle": "Use this section to support the student journey, not replace it",
+    "adultSummaryText": "Keep the learner-facing routes calm and visible first. Then use this adult guidance to lower barriers, support re-entry, and adapt access without turning the whole page into adult-mode navigation."
   },
   "helperCards": [
     {

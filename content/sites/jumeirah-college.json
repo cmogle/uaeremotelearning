@@ -7,8 +7,8 @@
   "hero": {
     "eyebrow": "Jumeirah College",
     "title": "When remote school feels hard, start with the next small step.",
-    "subtitle": "This page is mainly for students. Pick the help you need right now, use one small step, and find an adult quickly if the day is becoming too much.",
-    "badgeWords": ["Find help fast", "One step at a time", "Support is visible", "You are not alone"],
+    "subtitle": "You do not need to do this perfectly. Start with the help you need right now, do one small thing, and ask for help early if the day is becoming too much.",
+    "badgeWords": ["Find help fast", "One step at a time", "Ask early", "You are not alone"],
     "primaryCtaLabel": "I need help now",
     "primaryCtaTarget": "#support",
     "secondaryCtaLabel": "Support a learner",
@@ -18,9 +18,9 @@
     "quickStartSteps": [
       "Choose the route that matches how you feel.",
       "Do only the next step on the page.",
-      "Use the contact cards if you need a person."
+      "If you are stuck, message a person early."
     ],
-    "quickStartNote": "You do not need to solve the whole day at once."
+    "quickStartNote": "You do not need to solve the whole day at once. Just begin."
   },
   "journeyCards": [
     {
@@ -48,12 +48,119 @@
       "icon": "wellbeing"
     }
   ],
+  "studentIntents": [
+    {
+      "id": "overwhelmed",
+      "label": "I feel overwhelmed",
+      "title": "Make the day smaller first",
+      "reassurance": "You do not need to solve everything at once. Start by shrinking the demand until the next step feels possible again.",
+      "nextStep": "Stop looking at the full list, take one slow breath, and choose one task only for the next five minutes.",
+      "followUp": "If it still feels too big after one small step, write down what comes next and contact a trusted adult instead of forcing your way through the whole lesson.",
+      "script": "I am overwhelmed and need help to find the next small step.",
+      "visualTitle": "Try this calm sequence",
+      "visualItems": [
+        "Look away from the full list.",
+        "Take one slow breath in and out.",
+        "Pick one thing only.",
+        "Work for five minutes or message for help."
+      ],
+      "contactLabel": "Pastoral or wellbeing support",
+      "contactValue": "counselling_jcd@gemsedu.com",
+      "contactEmail": "counselling_jcd@gemsedu.com",
+      "icon": "heart",
+      "tone": "rose"
+    },
+    {
+      "id": "start",
+      "label": "I can't get started",
+      "title": "Start with the easiest visible action",
+      "reassurance": "Starting is often the hardest part of remote learning. Momentum usually comes after the first small action, not before it.",
+      "nextStep": "Put your phone away, close the tabs you do not need, open the lesson, and do only the first visible action.",
+      "followUp": "If you still cannot begin after trying the first action, tell your teacher exactly what is stopping you and ask for a clearer first step.",
+      "script": "I can see the lesson, but I cannot get started without one clearer first step.",
+      "visualTitle": "Start-up pattern",
+      "visualItems": [
+        "Put your phone away.",
+        "Find the latest instruction.",
+        "Write the first action in simple words.",
+        "Do that one action only."
+      ],
+      "contactLabel": "Subject teacher",
+      "contactValue": "Use the live lesson, email, or Google Classroom comments",
+      "icon": "timer",
+      "tone": "indigo"
+    },
+    {
+      "id": "confused",
+      "label": "I'm confused",
+      "title": "Ask for clarity before you push through",
+      "reassurance": "Confusion does not mean you have failed. It usually means the route into the work needs to be clearer or smaller.",
+      "nextStep": "Read the instruction out loud, underline one word you recognise, and ask what the first step is.",
+      "followUp": "If reading is part of the barrier, ask for the task to be chunked, read aloud, or explained in another way.",
+      "script": "I am not sure what the first step is. Could you make it smaller or clearer?",
+      "visualTitle": "Clarity checklist",
+      "visualItems": [
+        "Read the instruction out loud.",
+        "Underline one word you know.",
+        "Ask one clear question.",
+        "Start with one part, not the whole task."
+      ],
+      "contactLabel": "Learning support",
+      "contactValue": "f.nicconmara_jcd@gemsedu.com",
+      "contactEmail": "f.nicconmara_jcd@gemsedu.com",
+      "icon": "book",
+      "tone": "violet"
+    },
+    {
+      "id": "calm",
+      "label": "I need calm",
+      "title": "Regulate before you rejoin",
+      "reassurance": "If your body feels stressed, the first job is not productivity. The first job is helping yourself feel steady enough to continue.",
+      "nextStep": "Slow your breathing, drop your shoulders, stand up for a moment, and choose one reset action before returning to the screen.",
+      "followUp": "If calm does not come back quickly, use the wellbeing contacts instead of staying stuck on your own.",
+      "script": "I need a short reset before I can rejoin properly.",
+      "visualTitle": "Quick reset pattern",
+      "visualItems": [
+        "Slow the breath down.",
+        "Relax your shoulders and jaw.",
+        "Look away from the screen or stretch for a moment.",
+        "Choose one small next action."
+      ],
+      "contactLabel": "Years 7 to 9 wellbeing support",
+      "contactValue": "n.kesterton_jcd@gemsedu.com",
+      "contactEmail": "n.kesterton_jcd@gemsedu.com",
+      "icon": "sparkles",
+      "tone": "cyan"
+    },
+    {
+      "id": "person",
+      "label": "I need a person",
+      "title": "Go to a human support route quickly",
+      "reassurance": "Some problems are too big for another checklist. If the barrier is emotional, practical, or building up fast, speak to a person early.",
+      "nextStep": "Send a short message explaining what is wrong and whether the barrier is stress, understanding, time, access, or joining the lesson.",
+      "followUp": "If one contact route is slow, use your subject teacher, tutor, pastoral lead, or support-for-learning contact next.",
+      "script": "I need an adult to help me because this is affecting my day.",
+      "visualTitle": "Message map",
+      "visualItems": [
+        "Say what is wrong in one sentence.",
+        "Say what kind of barrier it is.",
+        "Ask for one next step.",
+        "Follow up with another support contact if needed."
+      ],
+      "contactLabel": "Form tutor or pastoral lead",
+      "contactValue": "Use your form tutor route first, then move to wellbeing or Support for Learning if needed",
+      "icon": "message",
+      "tone": "teal"
+    }
+  ],
   "headings": {
     "journeyTitle": "Choose the route that matches this moment",
     "journeyCaption": "The site is organised by need, not by department. Start where the problem feels most immediate.",
+    "intentPanelTitle": "What feels true right now?",
+    "intentPanelCaption": "Pick the closest match. Each path gives one calm next step, a visual sequence, and a human support route if you need one.",
     "supportEyebrow": "Student support",
     "supportTitle": "What do you need right now?",
-    "supportCaption": "Choose one support card. Read only that panel. If you need a person, use the contact cards beside it.",
+    "supportCaption": "Choose one common blocker. Read only that panel. Do the steps, then come back if you still need more help.",
     "supportTeamTitle": "Need a person, not another checklist?",
     "supportTeamCaption": "These are the fastest routes to real support for students.",
     "dayTitle": "What matters in the school day",
@@ -67,8 +174,13 @@
     "accessibilityTitle": "Accessibility and additional needs",
     "accessibilityCaption": "Design support around reduced load, clearer sequencing, and flexible ways to access the same learning.",
     "wellbeingTitle": "Wellbeing and further support",
+    "wellbeingCaption": "Keep calm, regulation, and visible human support close by when the learning day starts to feel too big.",
     "supportPageTitle": "If the day is becoming too hard",
-    "supportPageIntro": "This section is for emotional support, regulation, and human contact points."
+    "supportPageIntro": "This section is for emotional support, regulation, and human contact points.",
+    "adultLinkLabel": "For adults supporting a learner",
+    "adultSectionLabel": "Adult guidance",
+    "adultSummaryTitle": "Use this section after the student has found their immediate next step",
+    "adultSummaryText": "Keep the student journey primary. Use these adult guidance blocks to reduce barriers, make re-entry feel possible, and adapt support without increasing pressure."
   },
   "helperCards": [
     {
@@ -146,16 +258,87 @@
       "icon": "message",
       "tone": "teal",
       "steps": [
-        "Tell your teacher exactly what is wrong.",
-        "Contact your form tutor if the problem is affecting the day.",
-        "Use wellbeing or support-for-learning contacts if you feel stuck, stressed, or unable to begin."
+        "Subject teacher for classwork or lesson confusion.",
+        "Form tutor for daily support or if the day is going wrong.",
+        "Pastoral or wellbeing support if you feel stressed or overwhelmed.",
+        "Support for Learning if you need help understanding, organising, or getting started."
       ],
       "note": "You do not have to carry a difficult day on your own."
+    },
+    {
+      "id": "email",
+      "title": "I cannot manage my emails",
+      "icon": "message",
+      "tone": "violet",
+      "steps": [
+        "Check your email at set times, not constantly.",
+        "Look first for your teacher's name, deadlines, lesson links, or reminder words.",
+        "Reply straight away if it will take less than two minutes.",
+        "Star, archive, or close emails once you have dealt with them."
+      ],
+      "note": "You do not need to check emails all day.",
+      "extras": [
+        "Try a two-minute inbox reset: star anything important, reply if it is quick, then archive or close the rest.",
+        "Ask your teacher if you are unsure which emails matter most."
+      ]
+    },
+    {
+      "id": "eyes",
+      "title": "My eyes hurt",
+      "icon": "eye",
+      "tone": "sky",
+      "steps": [
+        "Look away from the screen for 20 seconds.",
+        "Lower the screen brightness if it feels too strong.",
+        "Blink slowly and relax your eyes.",
+        "Stand up for a moment, then come back to one small task."
+      ],
+      "note": "A short screen break can help you reset."
+    },
+    {
+      "id": "sitstill",
+      "title": "I cannot sit still",
+      "icon": "move",
+      "tone": "amber",
+      "steps": [
+        "Stand up and work if that helps.",
+        "Stretch for 30 seconds.",
+        "Move for two minutes.",
+        "Come back and do one task only."
+      ],
+      "note": "Movement can help your attention reset."
+    },
+    {
+      "id": "join",
+      "title": "I cannot join a lesson",
+      "icon": "offline",
+      "tone": "orange",
+      "steps": [
+        "Email your teacher straight away.",
+        "Copy in your form tutor or pastoral lead if the issue is affecting the day.",
+        "Say what is wrong in one sentence.",
+        "Do not disappear. Let school know you are still here."
+      ],
+      "note": "Ask for help as soon as you can."
+    },
+    {
+      "id": "friends",
+      "title": "I miss my friends",
+      "icon": "friends",
+      "tone": "pink",
+      "steps": [
+        "Message a friend to check in.",
+        "Arrange a short call or study session if you can.",
+        "Tell your tutor if isolation is making the day harder.",
+        "Remember this is temporary and people still want to hear from you."
+      ],
+      "note": "Staying connected can make the day feel lighter."
     }
   ],
   "dayExpectations": [
     "Join each lesson or task as close to the start time as you can.",
     "Check Google Classroom and your timetable every day.",
+    "Attend form time and key updates when they are part of the day.",
     "Complete work in manageable chunks, not all at once.",
     "Ask for help before stress builds up.",
     "Use reminders, notes, and routines to stay oriented."
@@ -164,35 +347,42 @@
     "Your work will usually be on Google Classroom.",
     "Teachers may use Google Meet, email, chat, or posted tasks.",
     "Read the latest instruction first before looking further back.",
-    "If you cannot join, contact the teacher and copy in the right pastoral lead."
+    "If you cannot join, contact the teacher and copy in the right pastoral lead.",
+    "Follow the timetable and use reminders if that helps."
   ],
   "onlineExpectations": [
     "Join lessons on time where possible.",
     "Follow instructions respectfully.",
     "Meet deadlines when you can, and communicate early if you cannot.",
+    "Keep your camera on when a teacher asks and school expectations require it.",
     "Be kind to other people and to yourself."
   ],
   "supportPhrases": [
     { "text": "I am not sure what the first step is." },
     { "text": "Could you explain that in a smaller chunk?" },
     { "text": "I am overwhelmed and need help getting started." },
-    { "text": "I cannot join right now but I am still here." }
+    { "text": "I cannot join right now but I am still here." },
+    { "text": "I am stuck starting." },
+    { "text": "Can I talk to someone?" }
   ],
   "supportBullets": [
     "Break tasks into smaller parts before motivation drops.",
     "Use the timetable as an orientation tool, not a pressure tool.",
     "Prefer clear next steps over long explanations.",
-    "Make support visible before behaviour becomes the issue."
+    "Make support visible before behaviour becomes the issue.",
+    "Check emails at set times instead of carrying them all day."
   ],
   "wellbeingHabits": [
     "Sleep and wake at a consistent time where possible.",
     "Drink water and eat before concentration drops.",
     "Move between lessons, even for one minute.",
-    "Build in time away from the screen after study blocks."
+    "Build in time away from the screen after study blocks.",
+    "Stay in touch with friends or trusted adults when remote learning feels isolating."
   ],
   "wellbeingResetSteps": [
     "Slow your breathing down.",
     "Relax your shoulders and jaw.",
+    "Look away from the screen or stretch for a moment.",
     "Notice five things you can see.",
     "Choose one small next action or one adult to contact."
   ],
@@ -223,21 +413,31 @@
       "title": "Stretching reset",
       "description": "A quick physical reset when a learner has been sitting too long.",
       "href": "https://app.screencastify.com/watch/1zRaN49XkE7vgWrzD2f7"
+    },
+    {
+      "title": "Stay connected",
+      "description": "If you miss your friends, message one person or ask to join a short study call.",
+      "href": "#wellbeing"
     }
   ],
   "supportContacts": [
     {
       "label": "Support for Learning",
-      "value": "f.nicconmara_jcd@gemsedu.com",
+      "value": "f.nicconmara_jcd@gemsedu.com - for understanding work, organisation, and getting started",
       "email": "f.nicconmara_jcd@gemsedu.com"
     },
     {
       "label": "Form tutor",
-      "value": "Use the school platform or agreed tutor contact route"
+      "value": "Use the school platform or agreed tutor contact route for daily support"
     },
     {
       "label": "Subject teacher",
-      "value": "Use the live lesson, email, or Google Classroom comments"
+      "value": "Use the live lesson, email, or Google Classroom comments for classwork and lesson help"
+    },
+    {
+      "label": "Counselling Team",
+      "value": "counselling_jcd@gemsedu.com - for stress, overwhelm, or emotional support",
+      "email": "counselling_jcd@gemsedu.com"
     }
   ],
   "educatorCards": [
@@ -270,6 +470,16 @@
         "Keep routines predictable and visible.",
         "Check whether the learner needs access adjustments rather than more encouragement."
       ]
+    },
+    {
+      "title": "When practical blockers are building up",
+      "summary": "Small barriers like inbox overload, screen fatigue, or restlessness can quietly stop learning before anyone notices.",
+      "steps": [
+        "Check whether the learner is overwhelmed by emails, tabs, or too many instructions.",
+        "Offer a short movement or screen break before re-entry.",
+        "Reduce the task to one visible first action.",
+        "Keep the message practical and calm so the learner can rejoin quickly."
+      ]
     }
   ],
   "accessibilityFeatures": [
@@ -288,11 +498,15 @@
     {
       "title": "Keep support explicit",
       "description": "Show learners exactly who they can contact and what words they can use when they are stuck."
+    },
+    {
+      "title": "Build in physical and visual resets",
+      "description": "Offer short screen breaks, stretch moments, and one-task re-entry points when attention or regulation is dropping."
     }
   ],
   "footer": {
     "title": "If today feels hard, start with one small next step.",
-    "text": "You are still part of school, even on a difficult day. A short message, one clarified task, or one check-in is enough to begin again.",
+    "text": "You are still part of school, even on a difficult day. One message, one clarified task, or one check-in is enough to begin again.",
     "note": "If you feel stuck, contact your teacher, tutor, or pastoral team so they can help you rejoin."
   },
   "adultFooter": {

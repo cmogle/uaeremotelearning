@@ -1,0 +1,608 @@
+.page {
+  background:
+    radial-gradient(circle at top right, rgb(16 185 129 / 0.08), transparent 28%),
+    linear-gradient(180deg, #f5f8fb, #edf3f8 24rem, #f8fbfd 100%);
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 1.25rem;
+}
+
+.skipLink {
+  background: #0f172a;
+  border-radius: 14px;
+  color: white;
+  left: 1rem;
+  padding: 0.85rem 1rem;
+  position: absolute;
+  top: -4rem;
+  z-index: 200;
+}
+
+.skipLink:focus {
+  top: 1rem;
+}
+
+.header {
+  backdrop-filter: blur(14px);
+  background: rgb(255 255 255 / 0.92);
+  border-bottom: 1px solid #d6dee8;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.headerInner,
+.heroGrid,
+.sectionHeading,
+.routeGrid,
+.twoColumn,
+.threeColumn,
+.footerInner,
+.helpLayout,
+.supportColumns,
+.inventoryGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.headerInner {
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  min-height: 5rem;
+}
+
+.brand {
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.brandKicker {
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.brandTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.navLink,
+.navLinkActive {
+  border-radius: 999px;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.72rem 1rem;
+}
+
+.navLinkActive {
+  background: #e6fffb;
+  color: #115e59;
+}
+
+.hero,
+.section,
+.sectionSoft {
+  padding: 4rem 0;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at top right, rgb(52 211 153 / 0.22), transparent 34%),
+    linear-gradient(135deg, #0f766e, #0f172a 72%);
+  color: white;
+  overflow: hidden;
+}
+
+.sectionSoft {
+  background: rgb(234 241 247 / 0.74);
+}
+
+.eyebrowPill,
+.eyebrow,
+.badge,
+.primaryCta,
+.secondaryCta,
+.routeCard,
+.surfaceCard,
+.softCard,
+.darkCard,
+.calloutCard,
+.contactCard,
+.inventoryCard,
+.helpCardButton,
+.helpCardButtonActive,
+.helpPanel,
+.miniCard,
+.inlineNote,
+.notePanel,
+.phraseCard,
+.expectationItem,
+.checkItem,
+.darkItem,
+.supportItem,
+.resetItem {
+  border-radius: 24px;
+}
+
+.eyebrowPill {
+  align-items: center;
+  background: rgb(255 255 255 / 0.11);
+  border: 1px solid rgb(255 255 255 / 0.14);
+  display: inline-flex;
+  gap: 0.5rem;
+  letter-spacing: 0.16em;
+  padding: 0.78rem 1rem;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.heroTitle {
+  font-size: clamp(2.9rem, 6vw, 5.2rem);
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+  margin: 1.2rem 0 1rem;
+  max-width: 11ch;
+}
+
+.heroText,
+.sectionText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.heroText {
+  color: rgb(236 253 245 / 0.95);
+  max-width: 42rem;
+}
+
+.badgeRow,
+.ctaRow,
+.quickStartList,
+.checkList,
+.darkList,
+.blockList,
+.phraseList,
+.supportList,
+.resetList {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.badgeRow {
+  grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
+  margin-top: 1.8rem;
+}
+
+.badge {
+  background: rgb(255 255 255 / 0.11);
+  border: 1px solid rgb(255 255 255 / 0.15);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+}
+
+.ctaRow {
+  grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+  margin-top: 1.8rem;
+}
+
+.primaryCta,
+.secondaryCta {
+  align-items: center;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 0.55rem;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.95rem 1.2rem;
+}
+
+.primaryCta {
+  background: white;
+  color: #0f172a;
+}
+
+.secondaryCta {
+  background: rgb(255 255 255 / 0.1);
+  border: 1px solid rgb(255 255 255 / 0.16);
+  color: white;
+}
+
+.heroCard,
+.surfaceCard,
+.softCard,
+.calloutCard,
+.contactCard,
+.inventoryCard,
+.helpPanel {
+  background: white;
+  box-shadow: 0 18px 48px rgb(15 23 42 / 0.07);
+  padding: 1.6rem;
+}
+
+.heroCard {
+  color: #0f172a;
+}
+
+.cardHeader,
+.sectionHeadingInner,
+.helpPanelHeader,
+.iconHeading {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.cardHeader,
+.helpPanelHeader,
+.iconHeading {
+  align-items: center;
+}
+
+.iconChip,
+.iconChipSoft,
+.iconChipDark,
+.helpButtonIcon {
+  align-items: center;
+  border-radius: 18px;
+  display: inline-flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+
+.iconChip {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.iconChipSoft {
+  background: #f8fafc;
+  color: #0f766e;
+}
+
+.iconChipDark {
+  background: rgb(255 255 255 / 0.1);
+  color: #6ee7b7;
+}
+
+.cardHeader h2,
+.cardHeader h3,
+.helpPanelHeader h2,
+.helpPanelHeader h3,
+.iconHeading h2,
+.iconHeading h3 {
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+  margin: 0;
+}
+
+.cardHeader p,
+.sectionHeading p {
+  color: #64748b;
+  margin: 0.1rem 0 0;
+}
+
+.quickStartItem,
+.checkItem,
+.expectationItem,
+.phraseCard,
+.darkItem,
+.supportItem,
+.resetItem,
+.miniCard {
+  padding: 1rem 1.05rem;
+}
+
+.quickStartItem,
+.checkItem,
+.supportItem,
+.resetItem {
+  align-items: start;
+  background: #f8fafc;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: auto 1fr;
+}
+
+.stepNumber {
+  align-items: center;
+  background: #047857;
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  font-weight: 800;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.quickStartItem p,
+.checkItem p,
+.supportItem p,
+.resetItem p,
+.miniCard p,
+.notePanel p,
+.inventoryCard p {
+  margin: 0;
+}
+
+.sectionHeading {
+  align-items: end;
+  margin-bottom: 1.8rem;
+}
+
+.sectionHeading h1,
+.sectionHeading h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0.35rem 0 0;
+}
+
+.eyebrow {
+  color: #0f766e;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.routeCard {
+  background: white;
+  border: 1px solid #d6dee8;
+  color: inherit;
+  padding: 1.35rem;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.routeCard:hover,
+.routeCard:focus-visible,
+.helpCardButton:hover,
+.helpCardButtonActive:hover {
+  box-shadow: 0 16px 32px rgb(15 23 42 / 0.08);
+  transform: translateY(-2px);
+}
+
+.routeCard h3,
+.inventoryCard h3,
+.contactCard h3,
+.miniCard h3,
+.helpCardButton span,
+.helpPanelHeader h2 {
+  margin: 0;
+}
+
+.routeCard p,
+.routeLink,
+.contactCard p {
+  margin: 0;
+}
+
+.routeLink {
+  align-items: center;
+  color: #0f766e;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.darkCard {
+  background: #0f172a;
+  color: white;
+}
+
+.darkList {
+  margin-top: 1rem;
+}
+
+.darkItem {
+  background: rgb(255 255 255 / 0.07);
+}
+
+.notePanel {
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 700;
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+}
+
+.helpLayout {
+  align-items: start;
+}
+
+.helpCardList {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.helpCardButton,
+.helpCardButtonActive {
+  align-items: center;
+  background: white;
+  border: 1px solid #d6dee8;
+  cursor: pointer;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: auto 1fr;
+  padding: 1rem 1.05rem;
+  text-align: left;
+}
+
+.helpCardButtonActive {
+  border-color: #10b981;
+  box-shadow: 0 14px 28px rgb(16 185 129 / 0.13);
+}
+
+.helpButtonIcon {
+  background: #f8fafc;
+  color: #0f766e;
+}
+
+.helpPanel {
+  border: 1px solid #dbe3eb;
+}
+
+.helpSteps {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.helpStep {
+  align-items: start;
+  background: #f8fafc;
+  border-radius: 22px;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: auto 1fr;
+  padding: 1rem 1.05rem;
+}
+
+.helpStep p,
+.helpSupportRoute p,
+.helpExtras li,
+.bulletList li,
+.inventoryCard li {
+  margin: 0;
+}
+
+.helpSupportRoute,
+.helpExtras {
+  border-radius: 22px;
+  margin-top: 1rem;
+  padding: 1rem 1.05rem;
+}
+
+.helpSupportRoute {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.helpExtras {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.helpExtras ul,
+.bulletList,
+.inventoryCard ul {
+  margin: 0.65rem 0 0;
+  padding-left: 1rem;
+}
+
+.helpNote {
+  color: #047857;
+  font-weight: 700;
+  margin: 1rem 0 0;
+}
+
+.expectationGrid {
+  display: grid;
+  gap: 0.95rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1rem;
+}
+
+.expectationItem {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.phraseCard {
+  background: white;
+  box-shadow: 0 10px 24px rgb(15 23 42 / 0.05);
+  font-weight: 700;
+}
+
+.supportColumns {
+  margin-top: 1rem;
+}
+
+.contactCard p,
+.inventoryCard p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.contactLink {
+  color: #0f766e;
+  display: inline-block;
+  font-weight: 800;
+  margin-top: 0.85rem;
+}
+
+.inventoryGrid {
+  margin-top: 1.5rem;
+}
+
+.footer {
+  border-top: 1px solid #d6dee8;
+  padding: 2.75rem 0;
+}
+
+.footerInner {
+  align-items: center;
+}
+
+.footerTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.footerText {
+  color: #64748b;
+  margin: 0.35rem 0 0;
+}
+
+@media (min-width: 760px) {
+  .heroGrid,
+  .twoColumn,
+  .sectionHeading,
+  .footerInner,
+  .helpLayout,
+  .supportColumns,
+  .inventoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .routeGrid,
+  .threeColumn {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .helpLayout {
+    grid-template-columns: 0.92fr 1.08fr;
+  }
+}
+
+@media (max-width: 759px) {
+  .headerInner {
+    grid-template-columns: 1fr;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .heroTitle {
+    max-width: 12ch;
+  }
+}

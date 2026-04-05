@@ -15,7 +15,7 @@ import {
   WifiOff,
 } from "lucide-react";
 
-import { HelperCard, SiteDefinition, ThemeTokens } from "@/types";
+import { SiteDefinition, SupportIconName, ThemeTokens, ToneName } from "@/types";
 
 export function toThemeStyle(theme: ThemeTokens) {
   const fontFamily =
@@ -41,11 +41,11 @@ export function toThemeStyle(theme: ThemeTokens) {
   } as CSSProperties;
 }
 
-export function getToneClass(tone: HelperCard["tone"]) {
+export function getToneClass(tone: ToneName) {
   return `tone-${tone}`;
 }
 
-export function getIcon(name: HelperCard["icon"]) {
+export function getIcon(name: SupportIconName) {
   const map = {
     timer: TimerReset,
     focus: CircleHelp,
