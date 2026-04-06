@@ -61,8 +61,8 @@ export const navItems: NavItem[] = [
 export const routeCards: RouteCard[] = [
   {
     href: "/school-day",
-    title: "I need to know what today should look like",
-    description: "See what the day looks like, how lessons work, and what matters most.",
+    title: "I need to know what today looks like",
+    description: "See what the day looks like, how lessons work, and what to focus on first.",
   },
   {
     href: "/get-help-now",
@@ -181,8 +181,8 @@ export const helperCards: HelperCard[] = [
     icon: MessageCircle,
     steps: [
       "Tell one person today. You do not need to work this out on your own.",
-      "Subject teacher: if you are stuck with a lesson or your work",
-      "Form tutor: if you need help with your day at school",
+      "Subject teacher: if you are stuck with the lesson or your work",
+      "Form tutor: if you need help with your school day",
       "Head of Year: if something feels serious or keeps happening",
       "Counsellor: if you feel overwhelmed, low, or anxious",
       "Support for Learning: if work feels hard to start, manage, or keep up with",
@@ -220,7 +220,7 @@ export const helperCards: HelperCard[] = [
 ];
 
 export const supportPhrases = [
-  "I don't understand step 1.",
+  "I don't understand what to do.",
   "I'm stuck starting.",
   "Can you help me?",
   "Can I talk to someone?",
@@ -230,24 +230,23 @@ export const dayExpectations = [
   "Join every lesson live and on time.",
   "Attend form time and assemblies.",
   "Check Google Classroom.",
-  "Complete your work and meet deadlines.",
-  "Complete your Class Charts wellbeing check-in every day.",
-  "Attend key assemblies and updates.",
+  "Do the work you can and ask early if you are falling behind.",
+  "Do your Class Charts wellbeing check-in each day.",
 ];
 
 export const lessonRules = [
-  "Your work will be on Google Classroom.",
-  "Your teacher will support you during the lesson.",
-  "Teachers may use Google Classroom, Google Meet, email, or chat.",
-  "Check instructions carefully.",
-  "Follow the day's timetable.",
+  "You will find your work on Google Classroom.",
+  "Your teacher will help you during the lesson.",
+  "Your teacher may use Google Classroom, Google Meet, email, or chat.",
+  "Take a moment to check the instructions.",
+  "Follow your timetable for the day.",
 ];
 
 export const onlineExpectations = [
   "Join lessons on time.",
   "Follow instructions.",
   "Keep your camera on when asked.",
-  "Behave respectfully.",
+  "Be respectful.",
   "Meet deadlines.",
   "Be kind to others and yourself.",
 ];
@@ -255,19 +254,19 @@ export const onlineExpectations = [
 export const makeItWork = [
   {
     title: "Set yourself up",
-    text: "Create a study space where you can work. Keep what you need nearby. Keep distractions away.",
+    text: "Create a study space where you can work. Keep what you need nearby. Keep a small notebook and pen ready. Keep distractions away.",
   },
   {
     title: "Use your timetable",
-    text: "Follow the school timings. Know what lesson is next. Use alarms if that helps.",
+    text: "Use your timetable to see what lesson is next. Set alarms if that helps.",
   },
   {
     title: "Keep it small",
-    text: "Do one thing at a time. Write instructions down. Start before you feel ready.",
+    text: "Do one thing at a time. Write the steps down. Start before you feel ready.",
   },
   {
-    title: "Ask early",
-    text: "Do not wait until everything builds up. Ask questions during the lesson. Reach out when you need support.",
+    title: "Ask for help early",
+    text: "Do not wait until everything builds up. Ask questions during the lesson. Reach out as soon as you need support.",
   },
 ];
 
@@ -275,7 +274,7 @@ export const wellbeingHabits = [
   "Get enough sleep.",
   "Eat regularly.",
   "Drink water.",
-  "Keep your phone away when you are working.",
+  "Move your phone away when you are working.",
   "Take time away from the screen.",
   "Do something calming after lessons.",
 ];
@@ -290,15 +289,15 @@ export const quickResetSteps = [
 export const supportContacts: ContactCard[] = [
   {
     title: "Subject teacher",
-    detail: "Help with the lesson, the task, or missing work.",
+    detail: "Help with the lesson, the work, or something you have missed.",
   },
   {
     title: "Your form tutor",
-    detail: "Daily support, check-ins, or when the day is getting harder to manage.",
+    detail: "Daily support, check-ins, or if the day starts feeling harder.",
   },
   {
     title: "Your Head of Year",
-    detail: "When something is wrong, you cannot join, or the problem is affecting the school day more widely.",
+    detail: "When something feels serious, you cannot join, or the problem is affecting more of your school day.",
   },
   {
     title: "The Support for Learning team",
@@ -310,7 +309,7 @@ export const supportContacts: ContactCard[] = [
 export const wellbeingContacts: ContactCard[] = [
   {
     title: "Counselling Team",
-    detail: "Talk to someone if stress, worry, or low mood is making things feel difficult.",
+    detail: "Talk to someone if stress, worry, or low mood is making the day feel harder.",
     email: "counselling_jcd@gemsedu.com",
   },
   {
@@ -336,20 +335,20 @@ export const stayingConnectedTips = [
   "Message a friend to check in.",
   "Arrange a quick video or voice call.",
   "Join group chats or study calls if you can.",
-  "Remember this is temporary. You will see your friends again.",
+  "Remember this is temporary. You will be back at school again.",
 ];
 
 export const helpPageIntro =
-  "Pick the closest match. Try the steps. If it doesn't feel better, ask for help.";
+  "Pick the closest match. Try the steps. If it still feels hard, ask for help.";
 
 export const schoolDayIntro =
-  "This is your school day. We are just doing it online. Keep it simple, follow the timetable, and ask early when something goes wrong.";
+  "This is your school day. We are just doing it online. Keep it simple, follow the timetable, and ask for help early if you get stuck.";
 
 export const wellbeingIntro =
-  "If things feel difficult, you are not on your own. Start with one small reset, then use the right support route.";
+  "If things feel difficult, you are not on your own. Start with one small reset, then ask for the support you need.";
 
 export const homePageSummary =
-  "You do not need to do this perfectly. You do need to log in, keep going, and ask for help when you need it.";
+  "You do not need to do this perfectly. Log in, keep going, and ask for help when you need it.";
 
 export const supportContactsIntro =
-  "Different people can help with different problems.";
+  "Different people can help with different things.";

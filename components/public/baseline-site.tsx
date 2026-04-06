@@ -108,12 +108,8 @@ export function BaselineShell({ children }: ShellProps) {
           <div>
             <p className={styles.footerTitle}>You do not need to be perfect.</p>
             <p className={styles.footerText}>
-              You just need to log in, begin, keep going, and ask for help when you need it.
+              Log in, start small, keep going, and ask for help when you need it.
             </p>
-          </div>
-          <div className={styles.notePanel}>
-            This site is now the publication baseline. We can keep improving structure, content,
-            and design together from here.
           </div>
         </div>
       </footer>
@@ -135,7 +131,12 @@ export function HomePageContent() {
             <p className={styles.heroText}>{homePageSummary}</p>
 
             <div className={styles.badgeRow}>
-              {["Start small", "Do one thing", "Ask early", "Join in. Stay on camera."].map((word) => (
+              {[
+                "Start small",
+                "Do one thing",
+                "Ask for help early",
+                "Join the lesson. Start with what you can do.",
+              ].map((word) => (
                 <span className={styles.badge} key={word}>
                   {word}
                 </span>
@@ -148,7 +149,7 @@ export function HomePageContent() {
                 <ArrowRight size={16} />
               </Link>
               <Link className={styles.secondaryCta} href="/school-day">
-                The Basics
+                See your school day
               </Link>
             </div>
           </div>
@@ -160,7 +161,7 @@ export function HomePageContent() {
               </div>
               <div>
                 <h2>Start work now</h2>
-                <p>Just 5 minutes</p>
+                <p>Start with 5 minutes</p>
               </div>
             </div>
 
@@ -173,7 +174,9 @@ export function HomePageContent() {
               ))}
             </div>
 
-            <div className={styles.notePanel}>You do not need to feel ready. Just begin.</div>
+            <div className={styles.notePanel}>
+              You do not need to feel ready. Start with one small step.
+            </div>
           </aside>
         </div>
       </section>
@@ -183,10 +186,10 @@ export function HomePageContent() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>Choose what you need</p>
-              <h2>Choose what you need</h2>
+              <h2>Start with the page that fits best</h2>
             </div>
             <p className={styles.sectionText}>
-              Keep the day simple. Choose the page that best matches what you need right now.
+              Keep the day simple. Choose the page that feels closest to what you need right now.
             </p>
           </div>
 
@@ -212,7 +215,7 @@ export function HomePageContent() {
               <div className={styles.iconChip}>
                 <CalendarDays size={22} />
               </div>
-              <h2>Your day. Read this first.</h2>
+              <h2>Your day. Start here.</h2>
             </div>
 
             <div className={styles.checkList}>
@@ -225,7 +228,7 @@ export function HomePageContent() {
             </div>
 
             <Link className={styles.routeLink} href="/school-day">
-              See the full school day page
+              Go to the school day page
               <ArrowRight size={16} />
             </Link>
           </article>
@@ -235,7 +238,7 @@ export function HomePageContent() {
               <div className={styles.iconChip}>
                 <Heart size={22} />
               </div>
-              <h2>Asking for help is normal</h2>
+              <h2>It is okay to ask for help</h2>
             </div>
 
             <div className={styles.phraseList}>
@@ -368,12 +371,12 @@ export function HelpPageContent() {
               <div className={styles.iconChipSoft}>
                 <Sparkles size={22} />
               </div>
-              <h2>Is this more than just a lesson problem?</h2>
+              <h2>Is this more than a lesson problem?</h2>
             </div>
 
             <p className={styles.sectionText}>
               If the day feels emotionally heavy, or the problem keeps growing, get wellbeing
-              support. You do not need to carry it on your own.
+              support. You do not need to carry this on your own.
             </p>
             <div className={styles.phraseList}>
               {supportPhrases.map((phrase) => (
@@ -412,7 +415,7 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChip}>
                   <CalendarDays size={22} />
                 </div>
-                <h2>What matters today</h2>
+                <h2>What to focus on today</h2>
               </div>
 
               <div className={styles.checkList}>
@@ -424,10 +427,7 @@ export function SchoolDayPageContent() {
                 ))}
               </div>
 
-              <div className={styles.notePanel}>
-                Your teacher will be ready for you at the start of the lesson. If you cannot join
-                live, email your teacher and copy in your Head of Year.
-              </div>
+              <div className={styles.notePanel}>Your teacher will be ready for you at the start of the lesson.</div>
             </article>
 
             <article className={styles.darkCard}>
@@ -458,7 +458,7 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChip}>
                   <CheckCircle2 size={22} />
                 </div>
-                <h2>How to take part well online</h2>
+                <h2>How to take part online</h2>
               </div>
 
               <div className={styles.expectationGrid}>
@@ -516,12 +516,12 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChipSoft}>
                   <MessageCircle size={22} />
                 </div>
-                <h2>If something goes wrong</h2>
+                <h2>If you get stuck</h2>
               </div>
 
               <p className={styles.sectionText}>
-                If something is stopping you from joining, starting, focusing, or understanding the
-                work, go straight to the help page.
+                If you are stuck joining, starting, focusing, or understanding the work, go
+                straight to the help page.
               </p>
               <Link className={styles.routeLink} href="/get-help-now">
                 Get help now
@@ -646,7 +646,7 @@ export function WellbeingPageContent() {
               <div className={styles.supportList}>
                 <div className={styles.supportItem}>
                   <CheckCircle2 size={18} />
-                  <p>Use this page when stress, worry, low mood, or overwhelm are making the day harder.</p>
+                  <p>Use this page if stress, worry, low mood, or overwhelm are making the day harder.</p>
                 </div>
               </div>
               <Link className={styles.routeLink} href="/get-help-now">
