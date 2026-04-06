@@ -34,6 +34,7 @@ import {
   siteTitle,
   stayingConnectedTips,
   supportContacts,
+  supportContactsIntro,
   supportForLearningBullets,
   supportPhrases,
   wellbeingContacts,
@@ -49,19 +50,19 @@ type ShellProps = {
 
 const helperGroups = [
   {
-    title: "Joining and timing",
+    title: "Joining lessons",
     ids: ["time", "join"],
   },
   {
-    title: "Starting and focusing",
+    title: "Staying focused",
     ids: ["focus", "sitstill", "eyes"],
   },
   {
-    title: "Understanding the work",
+    title: "Getting work done",
     ids: ["understand", "reader"],
   },
   {
-    title: "Getting support",
+    title: "Who can help me?",
     ids: ["help", "sfl"],
   },
 ];
@@ -107,7 +108,7 @@ export function BaselineShell({ children }: ShellProps) {
           <div>
             <p className={styles.footerTitle}>You do not need to be perfect.</p>
             <p className={styles.footerText}>
-              You just need to log in, start, keep going, and ask for help.
+              You just need to log in, begin, keep going, and ask for help when you need it.
             </p>
           </div>
           <div className={styles.notePanel}>
@@ -134,7 +135,7 @@ export function HomePageContent() {
             <p className={styles.heroText}>{homePageSummary}</p>
 
             <div className={styles.badgeRow}>
-              {["Start small", "Do one thing", "Ask early", "Keep your camera on"].map((word) => (
+              {["Start small", "Do one thing", "Ask early", "Join in. Stay on camera."].map((word) => (
                 <span className={styles.badge} key={word}>
                   {word}
                 </span>
@@ -147,7 +148,7 @@ export function HomePageContent() {
                 <ArrowRight size={16} />
               </Link>
               <Link className={styles.secondaryCta} href="/school-day">
-                See your day
+                The Basics
               </Link>
             </div>
           </div>
@@ -182,7 +183,7 @@ export function HomePageContent() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>Choose what you need</p>
-              <h2>Pick the clearest route</h2>
+              <h2>Choose what you need</h2>
             </div>
             <p className={styles.sectionText}>
               Keep the day simple. Choose the page that best matches what you need right now.
@@ -195,7 +196,7 @@ export function HomePageContent() {
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
                 <span className={styles.routeLink}>
-                  Open this page
+                  Start here
                   <ArrowRight size={16} />
                 </span>
               </Link>
@@ -346,10 +347,11 @@ export function HelpPageContent() {
               <div className={styles.iconChipSoft}>
                 <MessageCircle size={22} />
               </div>
-              <h2>Who to contact</h2>
+              <h2>Who can help with what</h2>
             </div>
 
             <div className={styles.supportList}>
+              <p className={styles.sectionText}>{supportContactsIntro}</p>
               {supportContacts.map((contact) => (
                 <div className={styles.supportItem} key={contact.title}>
                   <CheckCircle2 size={18} />
@@ -366,12 +368,12 @@ export function HelpPageContent() {
               <div className={styles.iconChipSoft}>
                 <Sparkles size={22} />
               </div>
-              <h2>Bigger than a work problem?</h2>
+              <h2>Is this more than just a lesson problem?</h2>
             </div>
 
             <p className={styles.sectionText}>
-              If the day feels emotionally heavy, or the problem keeps growing, use the wellbeing
-              support page instead of trying to hold it on your own.
+              If the day feels emotionally heavy, or the problem keeps growing, get wellbeing
+              support. You do not need to carry it on your own.
             </p>
             <div className={styles.phraseList}>
               {supportPhrases.map((phrase) => (
@@ -381,7 +383,7 @@ export function HelpPageContent() {
               ))}
             </div>
             <Link className={styles.routeLink} href="/wellbeing-support">
-              Go to wellbeing support
+              Get wellbeing support
               <ArrowRight size={16} />
             </Link>
           </article>
@@ -399,7 +401,7 @@ export function SchoolDayPageContent() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>School day</p>
-              <h1>What matters in the day</h1>
+              <h1>Your school day online</h1>
             </div>
             <p className={styles.sectionText}>{schoolDayIntro}</p>
           </div>
@@ -456,7 +458,7 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChip}>
                   <CheckCircle2 size={22} />
                 </div>
-                <h2>Online expectations</h2>
+                <h2>How to take part well online</h2>
               </div>
 
               <div className={styles.expectationGrid}>
@@ -473,7 +475,7 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChipSoft}>
                   <TimerReset size={22} />
                 </div>
-                <h2>How to make the day manageable</h2>
+                <h2>How to make the day easier</h2>
               </div>
 
               <div className={styles.blockList}>
@@ -493,6 +495,27 @@ export function SchoolDayPageContent() {
                 <div className={styles.iconChipSoft}>
                   <MessageCircle size={22} />
                 </div>
+                <h2>Who can help with what</h2>
+              </div>
+
+              <div className={styles.supportList}>
+                <p className={styles.sectionText}>{supportContactsIntro}</p>
+                {supportContacts.map((contact) => (
+                  <div className={styles.supportItem} key={contact.title}>
+                    <CheckCircle2 size={18} />
+                    <p>
+                      <strong>{contact.title}:</strong> {contact.detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className={styles.surfaceCard}>
+              <div className={styles.iconHeading}>
+                <div className={styles.iconChipSoft}>
+                  <MessageCircle size={22} />
+                </div>
                 <h2>If something goes wrong</h2>
               </div>
 
@@ -501,7 +524,7 @@ export function SchoolDayPageContent() {
                 work, go straight to the help page.
               </p>
               <Link className={styles.routeLink} href="/get-help-now">
-                Go to get help now
+                Get help now
                 <ArrowRight size={16} />
               </Link>
             </article>
@@ -617,7 +640,7 @@ export function WellbeingPageContent() {
                 <div className={styles.iconChipSoft}>
                   <UserRound size={22} />
                 </div>
-                <h2>What this page is for</h2>
+                <h2>Use this page if</h2>
               </div>
 
               <div className={styles.supportList}>
@@ -625,13 +648,9 @@ export function WellbeingPageContent() {
                   <CheckCircle2 size={18} />
                   <p>Use this page when stress, worry, low mood, or overwhelm are making the day harder.</p>
                 </div>
-                <div className={styles.supportItem}>
-                  <CheckCircle2 size={18} />
-                  <p>Use the help page for practical school-work problems like joining, starting, or understanding.</p>
-                </div>
               </div>
               <Link className={styles.routeLink} href="/get-help-now">
-                Go to get help now
+                Get help now
                 <ArrowRight size={16} />
               </Link>
             </article>

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { BaselineShell, WellbeingPageContent } from "@/components/public/baseline-site";
 
 export const metadata: Metadata = {
-  title: "Wellbeing & Support",
+  title: "Wellbeing and support",
   description: "Wellbeing contacts, reset steps, and support routes for students learning remotely.",
 };
 

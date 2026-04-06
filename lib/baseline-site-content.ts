@@ -62,17 +62,17 @@ export const routeCards: RouteCard[] = [
   {
     href: "/school-day",
     title: "I need to know what today should look like",
-    description: "See the shape of the day, how lessons work, and what matters most.",
+    description: "See what the day looks like, how lessons work, and what matters most.",
   },
   {
     href: "/get-help-now",
     title: "Something is stopping me from working right now",
-    description: "Get practical help with joining, starting, focusing, understanding, or asking for help.",
+    description: "Get practical help with joining lessons, starting work, staying focused, or asking for help.",
   },
   {
     href: "/wellbeing-support",
     title: "I feel stressed, overwhelmed, or need support",
-    description: "Go straight to reset steps, connection, and the right adult support route.",
+    description: "Go straight to reset steps, support, and the right person to talk to.",
   },
 ];
 
@@ -293,19 +293,19 @@ export const quickResetSteps = [
 export const supportContacts: ContactCard[] = [
   {
     title: "Subject teacher",
-    detail: "Use this route when you need help with the lesson, the task, or missing work.",
+    detail: "Help with the lesson, the task, or missing work.",
   },
   {
-    title: "Form tutor",
-    detail: "Use this route for daily support, check-ins, or when the day is getting harder to manage.",
+    title: "Your form tutor",
+    detail: "Daily support, check-ins, or when the day is getting harder to manage.",
   },
   {
-    title: "Head of Year",
-    detail: "Use this route if something is wrong, you cannot join, or the problem is affecting the school day more widely.",
+    title: "Your Head of Year",
+    detail: "When something is wrong, you cannot join, or the problem is affecting the school day more widely.",
   },
   {
-    title: "Support for Learning",
-    detail: "Use this route if you need tasks broken down, support to get started, or help staying organised.",
+    title: "The Support for Learning team",
+    detail: "Support with getting started, staying organised, and making the work feel more manageable.",
     email: "f.nicconmara_jcd@gemsedu.com",
   },
 ];
@@ -343,7 +343,7 @@ export const stayingConnectedTips = [
 ];
 
 export const helpPageIntro =
-  "Pick the closest match. Do the steps. If the problem keeps going, use the support route shown on the page.";
+  "Pick the closest match. Try the steps. If it doesn't feel better, ask for help.";
 
 export const schoolDayIntro =
   "This is your school day. We are just doing it online. Keep it simple, follow the timetable, and ask early when something goes wrong.";
@@ -353,3 +353,6 @@ export const wellbeingIntro =
 
 export const homePageSummary =
   "You do not need to do this perfectly. You do need to log in, keep going, and ask for help when you need it.";
+
+export const supportContactsIntro =
+  "Different people can help with different problems.";
