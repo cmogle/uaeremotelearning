@@ -1,4 +1,5 @@
 import { v1BaselineManifest } from "./v1-baseline/manifest";
+import { v2QuietPageManifest } from "./v2-quiet-page/manifest";
 import type { VariantManifest } from "./types";
 
 /**
@@ -16,7 +17,7 @@ import type { VariantManifest } from "./types";
  * That is the entire registration step. The preview gallery and the
  * `/preview/<key>/...` routes will pick it up automatically.
  */
-export const variants: VariantManifest[] = [v1BaselineManifest];
+export const variants: VariantManifest[] = [v1BaselineManifest, v2QuietPageManifest];
 
 /**
  * The variant currently rendered at the root of the live site

@@ -1,0 +1,557 @@
+.root {
+  --paper: #f7f2ea;
+  --paper-deep: #efe8db;
+  --ink: #1c1a17;
+  --ink-soft: #4a4640;
+  --terracotta: #c0492f;
+  --terracotta-deep: #8e2f1c;
+  --rule: #d8cfbe;
+
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: var(--qp-sans), "Atkinson Hyperlegible", "Inter", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+}
+
+.root :global(*) {
+  font-family: inherit;
+}
+
+.skipLink {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 200;
+  font-weight: 700;
+}
+
+.skipLink:focus {
+  top: 1rem;
+}
+
+.brandHeader {
+  border-bottom: 1px solid var(--rule);
+  padding: 2rem 0 1.75rem;
+}
+
+.brandShell {
+  margin: 0 auto;
+  max-width: 84rem;
+  padding: 0 2rem;
+}
+
+.brandKicker {
+  display: block;
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.brandTitle {
+  font-family: var(--qp-serif), "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  gap: 4rem;
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+  align-items: start;
+}
+
+.rail {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  border-left: 1px solid var(--rule);
+  padding: 0.4rem 0 0.4rem 1.5rem;
+}
+
+.railHeading {
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+  font-weight: 700;
+}
+
+.railList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.railLink,
+.railLinkActive {
+  display: block;
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.35rem 0;
+  color: var(--ink-soft);
+  border-left: 2px solid transparent;
+  margin-left: -1.5rem;
+  padding-left: 1.5rem;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.railLink:hover {
+  color: var(--ink);
+}
+
+.railLinkActive {
+  color: var(--terracotta);
+  border-left-color: var(--terracotta);
+  font-weight: 600;
+}
+
+.railFoot {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  max-width: 14ch;
+  line-height: 1.5;
+}
+
+.main {
+  max-width: 65ch;
+}
+
+.section {
+  scroll-margin-top: 1.5rem;
+  padding: 2.5rem 0 4.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.eyebrow {
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin: 0 0 0.9rem;
+}
+
+.sectionTitle {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+  max-width: 20ch;
+}
+
+.lede {
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 2.4rem;
+  max-width: 60ch;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 2.5rem 0 1.2rem;
+}
+
+.subhead {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 2.6rem 0 1rem;
+  color: var(--ink);
+}
+
+.aside {
+  background: var(--paper-deep);
+  border-left: 3px solid var(--terracotta);
+  padding: 0.85rem 1.1rem;
+  margin: 1.4rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.bulletList {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.bulletList li {
+  margin-bottom: 0.55rem;
+}
+
+.quickStartCard {
+  border: 1px solid var(--terracotta);
+  padding: 1.6rem 1.8rem;
+  margin: 0.5rem 0 2.6rem;
+  background: transparent;
+}
+
+.cardKicker {
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.cardSub {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+}
+
+.quickStartList {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.quickStartList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
+  font-family: var(--qp-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.cardNote {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.routeCards {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.routeCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--rule);
+  padding: 1.2rem 1.4rem;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.routeCard:hover {
+  border-color: var(--terracotta);
+  transform: translateY(-1px);
+}
+
+.routeCard h3 {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.005em;
+}
+
+.routeCard p {
+  margin: 0 0 0.6rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.routeArrow {
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--terracotta);
+}
+
+.phraseBlock {
+  margin-top: 2.4rem;
+}
+
+.phraseList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.phraseList li {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+  border-left: 2px solid var(--terracotta);
+  padding-left: 0.85rem;
+}
+
+.helperGroup {
+  margin-bottom: 2.6rem;
+}
+
+.groupTitle {
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.helperList {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.helperCard {
+  border-left: 2px solid var(--rule);
+  padding: 0.2rem 0 0.4rem 1.4rem;
+}
+
+.helperHead {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+  color: var(--terracotta);
+}
+
+.helperHead h4 {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.helperSteps {
+  margin: 0 0 0.8rem;
+  padding-left: 1.3rem;
+}
+
+.helperSteps li {
+  margin-bottom: 0.4rem;
+}
+
+.helperSupport {
+  margin: 0.6rem 0;
+  background: var(--paper-deep);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.helperExtras {
+  margin: 0.4rem 0 0.6rem;
+  padding-left: 1.3rem;
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+}
+
+.helperNote {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.contactBlock,
+.calloutBlock {
+  margin-top: 2.6rem;
+}
+
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contactList li {
+  border-left: 2px solid var(--rule);
+  padding-left: 0.9rem;
+}
+
+.contactList a {
+  color: var(--terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.calloutBlock {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.8rem;
+  margin-top: 3rem;
+}
+
+.inlineLink {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-family: var(--qp-sans), system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--terracotta);
+  padding-bottom: 2px;
+}
+
+.tipGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tipCard {
+  border-left: 2px solid var(--rule);
+  padding: 0.2rem 0 0.4rem 1rem;
+}
+
+.tipCard h4 {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+}
+
+.tipCard p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 2.4rem;
+  margin-top: 1rem;
+}
+
+.footerTitle {
+  font-family: var(--qp-serif), Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.footer p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .rail {
+    position: static;
+    border-left: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 0 0 1.5rem;
+  }
+
+  .railList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+  }
+
+  .railLink,
+  .railLinkActive {
+    margin-left: 0;
+    padding: 0.35rem 0;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .railLinkActive {
+    border-bottom-color: var(--terracotta);
+    border-left-color: transparent;
+  }
+
+  .railFoot {
+    display: none;
+  }
+
+  .main {
+    max-width: 100%;
+  }
+
+  .tipGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routeCard {
+    transition: none;
+  }
+
+  .routeCard:hover {
+    transform: none;
+  }
+}
