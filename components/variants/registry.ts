@@ -1,6 +1,7 @@
 import { v1BaselineManifest } from "./v1-baseline/manifest";
 import { v2QuietPageManifest } from "./v2-quiet-page/manifest";
 import { v3SlowStepsManifest } from "./v3-slow-steps/manifest";
+import { v4WorkshopWallManifest } from "./v4-workshop-wall/manifest";
 import type { VariantManifest } from "./types";
 
 /**
@@ -22,6 +23,7 @@ export const variants: VariantManifest[] = [
   v1BaselineManifest,
   v2QuietPageManifest,
   v3SlowStepsManifest,
+  v4WorkshopWallManifest,
 ];
 
 /**
