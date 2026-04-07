@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BaselineShell, HomePageContent } from "@/components/public/baseline-site";
+import { renderLivePage } from "@/components/variants/render";
 
 export const metadata: Metadata = {
   title: "Student Distance Learning Hub",
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return (
-    <BaselineShell>
-      <HomePageContent />
-    </BaselineShell>
-  );
+  return renderLivePage("/");
 }

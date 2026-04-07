@@ -42,7 +42,7 @@ import {
   wellbeingIntro,
 } from "@/lib/baseline-site-content";
 
-import styles from "./baseline-site.module.css";
+import styles from "./styles.module.css";
 
 type ShellProps = {
   children: React.ReactNode;

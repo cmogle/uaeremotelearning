@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BaselineShell, SchoolDayPageContent } from "@/components/public/baseline-site";
+import { renderLivePage } from "@/components/variants/render";
 
 export const metadata: Metadata = {
   title: "School day",
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function SchoolDayPage() {
-  return (
-    <BaselineShell>
-      <SchoolDayPageContent />
-    </BaselineShell>
-  );
+  return renderLivePage("/school-day");
 }

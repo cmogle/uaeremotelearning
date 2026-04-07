@@ -1,0 +1,122 @@
+.root {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #f4f4f6;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0b0b10;
+  border: 1px solid #2c2c38;
+  color: #f4f4f6;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.toggle:hover {
+  border-color: #4b4b5a;
+}
+
+.toggleKicker {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.toggleName {
+  font-weight: 600;
+}
+
+.toggleChevron {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 14rem;
+  background: #0b0b10;
+  border: 1px solid #2c2c38;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.menuKicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item,
+.itemActive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #f4f4f6;
+  font-size: 0.9rem;
+}
+
+.item:hover {
+  background: #1f1f29;
+}
+
+.itemActive {
+  background: #1f1f29;
+  outline: 1px solid #4b4b5a;
+}
+
+.itemName {
+  font-weight: 500;
+}
+
+.liveBadge {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #facc15;
+  color: #1c1c22;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.gallery {
+  display: block;
+  padding: 0.5rem 0.6rem;
+  border-top: 1px solid #2c2c38;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.gallery:hover {
+  color: #f4f4f6;
+}

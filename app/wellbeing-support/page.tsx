@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BaselineShell, WellbeingPageContent } from "@/components/public/baseline-site";
+import { renderLivePage } from "@/components/variants/render";
 
 export const metadata: Metadata = {
   title: "Wellbeing and support",
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function WellbeingSupportPage() {
-  return (
-    <BaselineShell>
-      <WellbeingPageContent />
-    </BaselineShell>
-  );
+  return renderLivePage("/wellbeing-support");
 }

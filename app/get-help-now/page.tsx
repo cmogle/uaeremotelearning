@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BaselineShell, HelpPageContent } from "@/components/public/baseline-site";
+import { renderLivePage } from "@/components/variants/render";
 
 export const metadata: Metadata = {
   title: "Get help now",
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function GetHelpNowPage() {
-  return (
-    <BaselineShell>
-      <HelpPageContent />
-    </BaselineShell>
-  );
+  return renderLivePage("/get-help-now");
 }
