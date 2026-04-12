@@ -1,4 +1,4 @@
-import { v1BaselineManifest } from "./v1-baseline/manifest";
+import { v5OobManifest } from "./v5-oob/manifest";
 import { v2QuietPageManifest } from "./v2-quiet-page/manifest";
 import { v3SlowStepsManifest } from "./v3-slow-steps/manifest";
 import { v4WorkshopWallManifest } from "./v4-workshop-wall/manifest";
@@ -20,7 +20,7 @@ import type { VariantManifest } from "./types";
  * `/preview/<key>/...` routes will pick it up automatically.
  */
 export const variants: VariantManifest[] = [
-  v1BaselineManifest,
+  v5OobManifest,
   v2QuietPageManifest,
   v3SlowStepsManifest,
   v4WorkshopWallManifest,
@@ -31,7 +31,7 @@ export const variants: VariantManifest[] = [
  * (https://distancelearn.ing/). When the founder picks a winner, change this
  * one constant — nothing else needs to move.
  */
-export const LIVE_VARIANT_KEY = "v1-baseline";
+export const LIVE_VARIANT_KEY = "v3-slow-steps";
 
 export function getVariant(key: string): VariantManifest | undefined {
   return variants.find((variant) => variant.key === key);

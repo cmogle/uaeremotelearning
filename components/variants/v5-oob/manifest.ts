@@ -8,9 +8,9 @@ import {
   WellbeingPageContent,
 } from "./index";
 
-export const v1BaselineManifest: VariantManifest = {
-  key: "v1-baseline",
-  name: "Baseline",
+export const v5OobManifest: VariantManifest = {
+  key: "v5-oob",
+  name: "Out-of-Box",
   description:
     "The original Jumeirah College distance-learning hub. Calm, content-led, conventional layout.",
   Shell: BaselineShell,

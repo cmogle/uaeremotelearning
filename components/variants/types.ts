@@ -7,7 +7,7 @@ export type VariantPagePath =
   | "/wellbeing-support";
 
 export type VariantManifest = {
-  /** URL-safe folder-style identifier, e.g. "v1-baseline". */
+  /** URL-safe folder-style identifier, e.g. "v3-slow-steps". */
   key: string;
   /** Short human-readable name shown in the preview gallery. */
   name: string;
