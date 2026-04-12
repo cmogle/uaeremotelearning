@@ -50,6 +50,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
   padding: 1.6rem 2rem 0;
   max-width: 80rem;
   margin: 0 auto;
@@ -76,6 +77,43 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.topNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1 1 28rem;
+  flex-wrap: wrap;
+}
+
+.topNavLink,
+.topNavLinkActive {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.84rem;
+  line-height: 1;
+  border: 1px solid var(--rule);
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.topNavLink {
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.topNavLink:hover {
+  border-color: var(--sage);
+  color: var(--sage-deep);
+}
+
+.topNavLinkActive {
+  color: var(--cream);
+  background: var(--sage);
+  border-color: var(--sage);
+  font-weight: 600;
 }
 
 .escapeButton {
@@ -497,6 +535,12 @@
 
   .topBar {
     padding: 1.2rem 1.25rem 0;
+  }
+
+  .topNav {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start;
   }
 
   .controls {

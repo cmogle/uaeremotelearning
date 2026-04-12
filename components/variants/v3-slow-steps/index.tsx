@@ -1,6 +1,7 @@
 "use client";
 
 import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation";
 import {
   type CSSProperties,
   type ReactNode,
@@ -18,6 +19,7 @@ import {
   homePageSummary,
   lessonRules,
   makeItWork,
+  navItems,
   onlineExpectations,
   quickResetSteps,
   quickStartSteps,
@@ -56,6 +58,13 @@ type RouteConfig = {
   steps: Step[];
 };
 
+const ROUTE_PATHS: Record<RouteKey, string> = {
+  home: "/",
+  help: "/get-help-now",
+  day: "/school-day",
+  wellbeing: "/wellbeing-support",
+};
+
 // ---------- Step builders ----------
 
 function HelperStep({ id }: { id: string }) {
@@ -87,6 +96,25 @@ function HelperStep({ id }: { id: string }) {
       ) : null}
       <p className={styles.note}>{card.note}</p>
     </>
+  );
+}
+
+function RouteChoiceLink({
+  path,
+  title,
+  detail,
+}: {
+  path: string;
+  title: string;
+  detail: string;
+}) {
+  const pathname = usePathname() ?? "";
+
+  return (
+    <a className={styles.choice} href={buildRouteHref(pathname, path)}>
+      <span className={styles.choiceTitle}>{title}</span>
+      <span className={styles.choiceDetail}>{detail}</span>
+    </a>
   );
 }
 
@@ -133,19 +161,17 @@ const HOME_STEPS: Step[] = [
     kicker: "Start here",
     title: "Where would you like to go next?",
     render: () => (
-      <div className={styles.choiceList}>
-        {routeCards.map((card) => (
-          <a
-            className={styles.choice}
-            href={routePathToHashHref(card.href)}
-            key={card.href}
-          >
-            <span className={styles.choiceTitle}>{card.title}</span>
-            <span className={styles.choiceDetail}>{card.description}</span>
-          </a>
-        ))}
-      </div>
-    ),
+        <div className={styles.choiceList}>
+          {routeCards.map((card) => (
+            <RouteChoiceLink
+              detail={card.description}
+              key={card.href}
+              path={card.href}
+              title={card.title}
+            />
+          ))}
+        </div>
+      ),
   },
 ];
 
@@ -231,12 +257,11 @@ const HELP_STEPS: Step[] = [
           If the day feels emotionally heavy, or the problem keeps growing, get
           wellbeing support. You do not need to carry this on your own.
         </p>
-        <a className={styles.choice} href="/preview/v3-slow-steps/wellbeing-support">
-          <span className={styles.choiceTitle}>Get wellbeing support</span>
-          <span className={styles.choiceDetail}>
-            Quick reset, looking after yourself, and people you can talk to.
-          </span>
-        </a>
+        <RouteChoiceLink
+          detail="Quick reset, looking after yourself, and people you can talk to."
+          path="/wellbeing-support"
+          title="Get wellbeing support"
+        />
       </>
     ),
   },
@@ -371,17 +396,16 @@ const ROUTES: Record<RouteKey, RouteConfig> = {
   wellbeing: { key: "wellbeing", hashPrefix: "w", steps: WELLBEING_STEPS },
 };
 
-function routePathToHashHref(path: string): string {
-  switch (path) {
-    case "/get-help-now":
-      return "/preview/v3-slow-steps/get-help-now";
-    case "/school-day":
-      return "/preview/v3-slow-steps/school-day";
-    case "/wellbeing-support":
-      return "/preview/v3-slow-steps/wellbeing-support";
-    default:
-      return "/preview/v3-slow-steps";
+function buildRouteHref(pathname: string, path: string): string {
+  const previewBase = pathname.startsWith("/preview/v3-slow-steps")
+    ? "/preview/v3-slow-steps"
+    : "";
+
+  if (path === "/") {
+    return previewBase || "/";
   }
+
+  return `${previewBase}${path}`;
 }
 
 // ---------- Shell ----------
@@ -395,6 +419,7 @@ export function SlowStepsShell({ children }: { children: React.ReactNode }) {
 function SlowSteps({ routeKey }: { routeKey: RouteKey }) {
   const route = ROUTES[routeKey];
   const total = route.steps.length;
+  const pathname = usePathname() ?? "";
 
   const [index, setIndex] = useState(0);
   const [showAll, setShowAll] = useState(false);
@@ -493,6 +518,7 @@ function SlowSteps({ routeKey }: { routeKey: RouteKey }) {
     [index, total]
   );
 
+  const currentPath = ROUTE_PATHS[routeKey];
   const current = route.steps[index];
   const isFirst = index === 0;
   const isLast = index === total - 1;
@@ -507,10 +533,25 @@ function SlowSteps({ routeKey }: { routeKey: RouteKey }) {
       </div>
 
       <div className={styles.topBar}>
-        <a className={styles.brand} href="/preview/v3-slow-steps">
+        <a className={styles.brand} href={buildRouteHref(pathname, "/")}>
           <span className={styles.brandKicker}>Jumeirah College</span>
           <span className={styles.brandTitle}>{siteTitle}</span>
         </a>
+        <nav aria-label="Primary" className={styles.topNav}>
+          {navItems.map((item) => {
+            const active = item.href === currentPath;
+            return (
+              <a
+                aria-current={active ? "page" : undefined}
+                className={active ? styles.topNavLinkActive : styles.topNavLink}
+                href={buildRouteHref(pathname, item.href)}
+                key={item.href}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
         <button className={styles.escapeButton} onClick={openAll} type="button">
           See everything
         </button>
