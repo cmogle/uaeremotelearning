@@ -5,4 +5,9 @@ Users ages will vary 11-16, boys and girls. >15% of users have an identified ADH
 Dual coding helps maintain student interest and engagement.
 Emojis and icons might interest them. 
 I think having options of different layouts or skins might appeal to them - particularly if it offers them the utility of self customisation. 
-I do not anticipate requiring user registration or login at this time. If customisation can be supported via cookies or similar, recommend that. Alternatively, make the alternate design/skin selection so effortless that it is not felt to be a burden to select mode on each visit.
+I do not anticipate requiring user registration or login at this time. If customisation can be supported via cookies or similar, recommend that. Alternatively, make the alternate design/skin selection so effortless that it is not felt to be a burden to select mode on each visit
+Continue to add emojis on all the key points on the pages
+I love the emojis on the get help now buttons, but there are also icons. Remove the icons from these buttons.
+Make the tabs at the top of the page bigger
+Make the Jumeirah College title bigger also
+Also the icons that change the page at the top should be bigger also
