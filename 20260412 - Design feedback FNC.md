@@ -11,3 +11,8 @@ I love the emojis on the get help now buttons, but there are also icons. Remove 
 Make the tabs at the top of the page bigger
 Make the Jumeirah College title bigger also
 Also the icons that change the page at the top should be bigger also
+The Jumeirah College Distance learning hub needs to be smaller, I want all the heading to fit on a computer screen
+When you open the get help now buttons, each one has an icon and an emoji.Keep the emojis only on every heading e.g. “I miss the start of lessons"
+Make the Steps font a little smaller
+Under the looking after yourself heading add emojis instead of bullet points	
+Under the "stay connected” heading add emojis instead of bullet points
