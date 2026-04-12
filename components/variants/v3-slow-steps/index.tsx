@@ -380,30 +380,42 @@ const WELLBEING_STEPS: Step[] = [
   {
     kicker: "💚 Wellbeing & support",
     title: "Looking after yourself",
-    render: () => (
-      <ul className={styles.checkList}>
-        {wellbeingHabits.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    ),
+    render: () => {
+      const emoji = ["😴", "🍽️", "💧", "📵", "🌿", "🎧"];
+      return (
+        <ul className={styles.emojiList}>
+          {wellbeingHabits.map((item, i) => (
+            <li key={item}>
+              <span className={styles.emojiListIcon}>{emoji[i] ?? "•"}</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      );
+    },
   },
   {
     kicker: "💚 Wellbeing & support",
     title: "Stay connected",
-    render: () => (
-      <>
-        <ul className={styles.checkList}>
-          {stayingConnectedTips.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className={styles.note}>
-          If you miss your friends or the day feels too much, connection still
-          counts as support.
-        </p>
-      </>
-    ),
+    render: () => {
+      const emoji = ["💬", "📞", "👥", "🏫"];
+      return (
+        <>
+          <ul className={styles.emojiList}>
+            {stayingConnectedTips.map((item, i) => (
+              <li key={item}>
+                <span className={styles.emojiListIcon}>{emoji[i] ?? "•"}</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className={styles.note}>
+            If you miss your friends or the day feels too much, connection still
+            counts as support.
+          </p>
+        </>
+      );
+    },
   },
   {
     kicker: "💚 Wellbeing & support",
@@ -710,7 +722,6 @@ function HelpHub() {
   /* ---------- Mini-wizard for a single topic ---------- */
   if (activeCard) {
     const emoji = HELPER_EMOJI[activeCard.id] ?? "";
-    const Icon = activeCard.icon;
     return (
       <div className={styles.shell}>
         <div className={styles.progressBar} aria-hidden>
@@ -733,8 +744,7 @@ function HelpHub() {
             </button>
             <p className={styles.kicker}>
               <span className={styles.kickerEmoji}>{emoji}</span>
-              <Icon size={18} strokeWidth={1.5} />
-              {" "}{activeCard.title}
+              {activeCard.title}
             </p>
             <h1 className={styles.title}>
               {isLastSlide ? "Remember" : `Step ${stepIndex + 1}`}

@@ -135,8 +135,8 @@
 
 .brandTitle {
   font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--ink);
 }
 
@@ -297,9 +297,9 @@
 
 .title {
   font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 0 0 0.6rem;
   color: var(--ink);
@@ -465,6 +465,29 @@
   left: 0;
   top: 0;
   font-size: 0.9rem;
+}
+
+.emojiList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.emojiList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.emojiListIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  line-height: 1.55;
 }
 
 .phraseList {
