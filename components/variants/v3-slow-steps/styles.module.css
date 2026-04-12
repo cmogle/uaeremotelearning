@@ -1,25 +1,76 @@
+/* ================================================================== */
+/*  Root & theme variables                                             */
+/* ================================================================== */
+
 .root {
-  --cream: #faf7f2;
-  --cream-deep: #f1ece2;
+  /* — Calm (default) — */
+  --bg: #faf7f2;
+  --bg-deep: #f1ece2;
+  --bg-card: rgba(255, 255, 255, 0.55);
   --ink: #1a1a1f;
   --ink-soft: #5a5860;
-  --sage: #5c7b6b;
-  --sage-deep: #3f5b4d;
-  --sage-soft: #d8e2db;
+  --accent: #5c7b6b;
+  --accent-deep: #3f5b4d;
+  --accent-soft: #d8e2db;
+  --accent-glow: rgba(92, 123, 107, 0.08);
   --rule: #e7e1d4;
+  --danger: #c45d4a;
 
-  background: var(--cream);
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      var(--accent-glow) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      var(--accent-glow) 0%,
+      transparent 50%
+    ),
+    var(--bg);
   color: var(--ink);
   min-height: 100vh;
-  font-family: var(--ss-sans), "Inter", system-ui, sans-serif;
+  font-family: var(--font-body), "Lexend", system-ui, sans-serif;
   font-size: 19px;
   line-height: 1.7;
   letter-spacing: -0.005em;
 }
 
+.root[data-theme="midnight"] {
+  --bg: #0e0e16;
+  --bg-deep: #161622;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --ink: #e2e0ee;
+  --ink-soft: #8886a0;
+  --accent: #6ba3be;
+  --accent-deep: #8ec5db;
+  --accent-soft: #1a2530;
+  --accent-glow: rgba(107, 163, 190, 0.1);
+  --rule: #2a2838;
+  --danger: #e07a68;
+}
+
+.root[data-theme="electric"] {
+  --bg: #fffcf5;
+  --bg-deep: #fff0d4;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --ink: #1a1a1f;
+  --ink-soft: #6b5e50;
+  --accent: #e85d26;
+  --accent-deep: #c94a18;
+  --accent-soft: #ffe8d4;
+  --accent-glow: rgba(232, 93, 38, 0.08);
+  --rule: #f0dcc0;
+  --danger: #d43d3d;
+}
+
 .root :global(*) {
   font-family: inherit;
 }
+
+/* ================================================================== */
+/*  Shell structure                                                    */
+/* ================================================================== */
 
 .shell {
   position: relative;
@@ -28,22 +79,30 @@
   flex-direction: column;
 }
 
+/* ================================================================== */
+/*  Progress bar                                                       */
+/* ================================================================== */
+
 .progressBar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--cream-deep);
+  background: var(--bg-deep);
   z-index: 50;
 }
 
 .progressFill {
   height: 100%;
   width: var(--progress, 0%);
-  background: var(--sage);
+  background: var(--accent);
   transition: width 320ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ================================================================== */
+/*  Top bar                                                            */
+/* ================================================================== */
 
 .topBar {
   display: flex;
@@ -66,14 +125,16 @@
 }
 
 .brandKicker {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--accent);
   font-weight: 600;
 }
 
 .brandTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink);
@@ -96,24 +157,33 @@
   font-size: 0.84rem;
   line-height: 1;
   border: 1px solid var(--rule);
-  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
 }
 
 .topNavLink {
   color: var(--ink-soft);
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--bg-card);
 }
 
 .topNavLink:hover {
-  border-color: var(--sage);
-  color: var(--sage-deep);
+  border-color: var(--accent);
+  color: var(--accent-deep);
 }
 
 .topNavLinkActive {
-  color: var(--cream);
-  background: var(--sage);
-  border-color: var(--sage);
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
   font-weight: 600;
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .escapeButton {
@@ -125,13 +195,63 @@
   padding: 0.55rem 0.95rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: border-color 150ms ease, color 150ms ease;
+  font-family: inherit;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease;
 }
 
 .escapeButton:hover {
-  border-color: var(--sage);
-  color: var(--sage-deep);
+  border-color: var(--accent);
+  color: var(--accent-deep);
 }
+
+/* ================================================================== */
+/*  Theme switcher                                                     */
+/* ================================================================== */
+
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--bg-deep);
+  border-radius: 999px;
+  padding: 0.25rem;
+  border: 1px solid var(--rule);
+}
+
+.themeButton,
+.themeButtonActive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 180ms ease;
+  padding: 0;
+}
+
+.themeButton:hover {
+  background: var(--bg-card);
+  border-color: var(--rule);
+  transform: scale(1.1);
+}
+
+.themeButtonActive {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ================================================================== */
+/*  Stage (wizard)                                                     */
+/* ================================================================== */
 
 .stage {
   flex: 1;
@@ -151,23 +271,46 @@
   text-align: left;
 }
 
+/* ================================================================== */
+/*  Card typography                                                    */
+/* ================================================================== */
+
 .kicker {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--accent);
   font-weight: 600;
   margin: 0 0 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kickerEmoji {
+  font-size: 1.1rem;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .title {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin: 0 0 2rem;
+  margin: 0 0 0.6rem;
   color: var(--ink);
   max-width: 22ch;
+}
+
+.stepCounter {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+  letter-spacing: 0.06em;
 }
 
 .body {
@@ -195,6 +338,10 @@
   color: var(--ink-soft);
 }
 
+/* ================================================================== */
+/*  Controls                                                           */
+/* ================================================================== */
+
 .controls {
   display: flex;
   align-items: center;
@@ -206,7 +353,7 @@
 
 .back,
 .next {
-  font-family: inherit;
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   border: 1px solid var(--rule);
   background: transparent;
   color: var(--ink);
@@ -221,8 +368,8 @@
 
 .back:hover:not(:disabled),
 .next:hover:not(:disabled) {
-  border-color: var(--sage);
-  background: var(--sage-soft);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .back:disabled,
@@ -232,16 +379,16 @@
 }
 
 .next {
-  background: var(--sage);
-  border-color: var(--sage);
-  color: var(--cream);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
   font-weight: 600;
 }
 
 .next:hover:not(:disabled) {
-  background: var(--sage-deep);
-  border-color: var(--sage-deep);
-  color: var(--cream);
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: var(--bg);
 }
 
 .controlHint {
@@ -250,7 +397,9 @@
   letter-spacing: 0.05em;
 }
 
-/* ---------- Step content components ---------- */
+/* ================================================================== */
+/*  Step content components                                            */
+/* ================================================================== */
 
 .numberedSteps {
   list-style: none;
@@ -269,13 +418,14 @@
 }
 
 .numberPill {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1.5px solid var(--sage);
-  color: var(--sage-deep);
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1.5px solid var(--accent);
+  color: var(--accent-deep);
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: 999px;
@@ -313,7 +463,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--sage);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -332,29 +482,30 @@
   color: var(--ink);
   font-style: italic;
   padding-left: 1rem;
-  border-left: 3px solid var(--sage);
+  border-left: 3px solid var(--accent);
 }
 
 .helperIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--sage);
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
 .supportRoute {
   margin-top: 1.4rem;
-  background: var(--sage-soft);
-  border-left: 3px solid var(--sage);
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
   padding: 1rem 1.2rem;
   font-size: 1.05rem;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .supportRouteTitle {
   margin: 0 0 0.3rem;
   font-weight: 600;
-  color: var(--sage-deep);
+  color: var(--accent-deep);
 }
 
 .supportRoute p:last-child {
@@ -368,31 +519,56 @@
   color: var(--ink-soft);
 }
 
+/* ================================================================== */
+/*  Route choice links                                                 */
+/* ================================================================== */
+
 .choiceList {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
-.choice {
+.choice,
+.choiceUrgent {
   display: block;
   text-decoration: none;
   color: inherit;
   padding: 1.4rem 1.5rem;
   border: 1px solid var(--rule);
-  border-radius: 0.6rem;
-  background: transparent;
-  transition: all 180ms ease;
+  border-radius: 0.75rem;
+  background: var(--bg-card);
+  transition: all 200ms ease;
 }
 
-.choice:hover {
-  border-color: var(--sage);
-  background: var(--sage-soft);
+.choice:hover,
+.choiceUrgent:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.choiceUrgent {
+  border-color: var(--danger);
+  border-width: 2px;
+  background: color-mix(in srgb, var(--danger) 5%, var(--bg-card));
+}
+
+.choiceUrgent:hover {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, var(--bg-card));
+}
+
+.choiceEmoji {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .choiceTitle {
   display: block;
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 1.18rem;
   font-weight: 600;
   color: var(--ink);
@@ -406,6 +582,10 @@
   color: var(--ink-soft);
   line-height: 1.5;
 }
+
+/* ================================================================== */
+/*  Contact list                                                       */
+/* ================================================================== */
 
 .contactList {
   list-style: none;
@@ -424,16 +604,180 @@
 }
 
 .contactList strong {
-  color: var(--sage-deep);
+  color: var(--accent-deep);
 }
 
 .contactList a {
-  color: var(--sage);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* ---------- Escape index ---------- */
+/* ================================================================== */
+/*  Help hub — topic grid                                              */
+/* ================================================================== */
+
+.helpHubStage {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+  width: 100%;
+}
+
+.helpHubIntro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.helpHubTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 0.8rem;
+}
+
+.helpHubEmoji {
+  font-size: 0.9em;
+}
+
+.helpHubLede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 0 auto;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.helpButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  transition: all 200ms ease;
+}
+
+.helpButton:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.helpButton:active {
+  transform: translateY(-1px);
+}
+
+.helpButtonEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.helpButtonIcon {
+  color: var(--accent);
+}
+
+.helpButtonTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Help hub — mini-wizard slides                                      */
+/* ------------------------------------------------------------------ */
+
+.helpBackToTopics {
+  background: transparent;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  transition: color 150ms ease;
+  display: inline-block;
+}
+
+.helpBackToTopics:hover {
+  color: var(--accent);
+}
+
+.helpSlideText {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 400;
+}
+
+.helpNote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.2rem;
+  line-height: 1.6;
+}
+
+.helpExtras {
+  margin: 1rem 0 0;
+  padding-left: 1.3rem;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+.helpExtras li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Help hub — footer (contacts & wellbeing link)                      */
+/* ------------------------------------------------------------------ */
+
+.helpHubFooter {
+  border-top: 1px solid var(--rule);
+  padding-top: 2.5rem;
+}
+
+.helpHubFooterTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+
+.helpHubFooterLede {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+}
+
+.helpHubWellbeingLink {
+  margin-top: 2rem;
+}
+
+/* ================================================================== */
+/*  Escape index                                                       */
+/* ================================================================== */
 
 .indexStage {
   max-width: 70ch;
@@ -452,16 +796,17 @@
 }
 
 .indexTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.015em;
   margin: 0;
   color: var(--ink);
 }
 
 .escapeClose {
-  background: var(--sage);
-  color: var(--cream);
+  background: var(--accent);
+  color: var(--bg);
   border: none;
   padding: 0.75rem 1.2rem;
   font-size: 0.9rem;
@@ -470,10 +815,11 @@
   cursor: pointer;
   font-family: inherit;
   flex-shrink: 0;
+  transition: background 160ms ease;
 }
 
 .escapeClose:hover {
-  background: var(--sage-deep);
+  background: var(--accent-deep);
 }
 
 .indexSection {
@@ -481,10 +827,11 @@
 }
 
 .indexSectionTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--accent);
   font-weight: 600;
   margin: 0 0 1.5rem;
   padding-bottom: 0.5rem;
@@ -507,6 +854,7 @@
 }
 
 .indexCardTitle {
+  font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 0.9rem;
@@ -523,6 +871,10 @@
   padding-top: 2rem;
   border-top: 1px solid var(--rule);
 }
+
+/* ================================================================== */
+/*  Responsive                                                         */
+/* ================================================================== */
 
 @media (max-width: 720px) {
   .root {
@@ -543,6 +895,10 @@
     justify-content: flex-start;
   }
 
+  .topBarActions {
+    gap: 0.4rem;
+  }
+
   .controls {
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -558,13 +914,51 @@
   .title {
     font-size: 2rem;
   }
+
+  .helpGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .helpButton {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .helpButtonEmoji {
+    font-size: 1.6rem;
+  }
+
+  .helpHubStage {
+    padding: 2rem 1.25rem 4rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .helpGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .helpButton {
+    padding: 1rem 0.6rem;
+    gap: 0.3rem;
+  }
+
+  .helpButtonTitle {
+    font-size: 0.82rem;
+  }
+}
+
+/* ================================================================== */
+/*  Reduced motion & view transitions                                  */
+/* ================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .progressFill {
     transition: none;
   }
-  .choice:hover {
+  .choice:hover,
+  .choiceUrgent:hover,
+  .helpButton:hover {
     transform: none;
   }
 }
