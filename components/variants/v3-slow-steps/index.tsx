@@ -141,11 +141,13 @@ function useTheme(): [ThemeKey, (t: ThemeKey) => void] {
 /* ------------------------------------------------------------------ */
 
 function buildRouteHref(pathname: string, path: string): string {
-  const previewBase = pathname.startsWith("/preview/v3-slow-steps")
-    ? "/preview/v3-slow-steps"
-    : "";
-  if (path === "/") return previewBase || "/";
-  return `${previewBase}${path}`;
+  if (pathname.startsWith("/preview/v3-slow-steps")) {
+    const previewBase = "/preview/v3-slow-steps";
+    if (path === "/") return previewBase;
+    return `${previewBase}${path}`;
+  }
+  if (path === "/") return "/JC";
+  return `/JC${path}`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -275,7 +277,7 @@ const HOME_STEPS: Step[] = [
     render: () => (
       <ul className={styles.phraseList}>
         {supportPhrases.map((phrase) => (
-          <li key={phrase}>&ldquo;{phrase}&rdquo;</li>
+          <li key={phrase}>💬 &ldquo;{phrase}&rdquo;</li>
         ))}
       </ul>
     ),
@@ -801,11 +803,6 @@ function HelpHub() {
                 type="button"
               >
                 <span className={styles.helpButtonEmoji}>{emoji}</span>
-                <Icon
-                  className={styles.helpButtonIcon}
-                  size={20}
-                  strokeWidth={1.5}
-                />
                 <span className={styles.helpButtonTitle}>{card.title}</span>
               </button>
             );

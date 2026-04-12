@@ -126,7 +126,7 @@
 
 .brandKicker {
   font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
@@ -135,8 +135,8 @@
 
 .brandTitle {
   font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--ink);
 }
 
@@ -153,10 +153,11 @@
 .topNavLinkActive {
   text-decoration: none;
   border-radius: 999px;
-  padding: 0.55rem 0.9rem;
-  font-size: 0.84rem;
+  padding: 0.7rem 1.15rem;
+  font-size: 1rem;
   line-height: 1;
   border: 1px solid var(--rule);
+  font-weight: 500;
   transition:
     border-color 150ms ease,
     background-color 150ms ease,
@@ -225,13 +226,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999px;
   border: 2px solid transparent;
   background: transparent;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   transition: all 180ms ease;
   padding: 0;
 }
@@ -459,12 +460,11 @@
 }
 
 .checkList li::before {
-  content: "✓";
+  content: "✅";
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent);
-  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .phraseList {
@@ -685,10 +685,6 @@
 .helpButtonEmoji {
   font-size: 2rem;
   line-height: 1;
-}
-
-.helpButtonIcon {
-  color: var(--accent);
 }
 
 .helpButtonTitle {
