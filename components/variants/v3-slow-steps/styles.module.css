@@ -39,14 +39,14 @@
 .root[data-theme="midnight"] {
   --bg: #0e0e16;
   --bg-deep: #161622;
-  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.07);
   --ink: #e2e0ee;
   --ink-soft: #8886a0;
   --accent: #6ba3be;
   --accent-deep: #8ec5db;
   --accent-soft: #1a2530;
-  --accent-glow: rgba(107, 163, 190, 0.1);
-  --rule: #2a2838;
+  --accent-glow: rgba(107, 163, 190, 0.12);
+  --rule: #363348;
   --danger: #e07a68;
 }
 
@@ -172,6 +172,11 @@
 .topNavLink:hover {
   border-color: var(--accent);
   color: var(--accent-deep);
+}
+
+.topNavLink:active {
+  transform: scale(0.95);
+  transition: all 80ms ease;
 }
 
 .topNavLinkActive {
@@ -377,8 +382,13 @@
 }
 
 .back:disabled,
-.next:disabled,
 .disabled {
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
+.next:disabled {
   opacity: 0.3;
   cursor: not-allowed;
   pointer-events: none;
@@ -395,6 +405,12 @@
   background: var(--accent-deep);
   border-color: var(--accent-deep);
   color: var(--bg);
+}
+
+.back:active:not(:disabled),
+.next:active:not(:disabled) {
+  transform: scale(0.95);
+  transition: all 80ms ease;
 }
 
 .controlHint {
@@ -562,11 +578,26 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  padding: 1.4rem 1.5rem;
+  padding: 1.4rem 2.5rem 1.4rem 1.5rem;
   border: 1px solid var(--rule);
   border-radius: 0.75rem;
   background: var(--bg-card);
   transition: all 200ms ease;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.choice::after,
+.choiceUrgent::after {
+  content: "→";
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0.4;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .choice:hover,
@@ -577,10 +608,27 @@
   box-shadow: 0 6px 20px var(--accent-glow);
 }
 
+.choice:hover::after,
+.choiceUrgent:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(3px);
+}
+
+.choice:active,
+.choiceUrgent:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 80ms ease;
+}
+
 .choiceUrgent {
   border-color: var(--danger);
   border-width: 2px;
   background: color-mix(in srgb, var(--danger) 5%, var(--bg-card));
+}
+
+.choiceUrgent::after {
+  color: var(--danger);
 }
 
 .choiceUrgent:hover {
@@ -689,9 +737,10 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.6rem 1rem;
+  padding: 1.6rem 1rem 1.3rem;
   background: var(--bg-card);
-  border: 1px solid var(--rule);
+  border: 1.5px solid var(--rule);
+  border-bottom: 3px solid var(--accent);
   border-radius: 1rem;
   cursor: pointer;
   font-family: inherit;
@@ -699,17 +748,40 @@
   text-decoration: none;
   color: inherit;
   transition: all 200ms ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.helpButton::after {
+  content: "→";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  opacity: 0.5;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .helpButton:hover {
   border-color: var(--accent);
+  border-bottom-color: var(--accent-deep);
   background: var(--accent-soft);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px var(--accent-glow);
+  box-shadow: 0 8px 24px var(--accent-glow), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.helpButton:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 .helpButton:active {
-  transform: translateY(-1px);
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transition: all 80ms ease;
 }
 
 .helpButtonEmoji {
@@ -730,22 +802,30 @@
 /* ------------------------------------------------------------------ */
 
 .helpBackToTopics {
-  background: transparent;
-  border: none;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
   text-decoration: none;
   color: var(--ink-soft);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 0.4rem 0;
+  padding: 0.5rem 1rem;
   margin-bottom: 1.5rem;
   font-family: inherit;
-  transition: color 150ms ease;
+  border-radius: 999px;
+  transition: all 150ms ease;
   display: inline-block;
 }
 
 .helpBackToTopics:hover {
-  color: var(--accent);
+  color: var(--accent-deep);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.helpBackToTopics:active {
+  transform: scale(0.97);
+  transition: all 80ms ease;
 }
 
 .helpSlideText {
