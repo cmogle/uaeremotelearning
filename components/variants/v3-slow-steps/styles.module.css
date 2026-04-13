@@ -578,26 +578,11 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  padding: 1.4rem 2.5rem 1.4rem 1.5rem;
+  padding: 1.4rem 1.5rem;
   border: 1px solid var(--rule);
   border-radius: 0.75rem;
   background: var(--bg-card);
   transition: all 200ms ease;
-  position: relative;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-}
-
-.choice::after,
-.choiceUrgent::after {
-  content: "→";
-  position: absolute;
-  right: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.1rem;
-  color: var(--accent);
-  opacity: 0.4;
-  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .choice:hover,
@@ -606,12 +591,6 @@
   background: var(--accent-soft);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-.choice:hover::after,
-.choiceUrgent:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) translateX(3px);
 }
 
 .choice:active,
@@ -625,10 +604,6 @@
   border-color: var(--danger);
   border-width: 2px;
   background: color-mix(in srgb, var(--danger) 5%, var(--bg-card));
-}
-
-.choiceUrgent::after {
-  color: var(--danger);
 }
 
 .choiceUrgent:hover {
