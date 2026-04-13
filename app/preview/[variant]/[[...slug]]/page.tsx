@@ -7,6 +7,7 @@ import type { VariantPagePath } from "@/components/variants/types";
 
 type PageProps = {
   params: Promise<{ variant: string; slug?: string[] }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 const VALID_PATHS: VariantPagePath[] = [
@@ -47,9 +48,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function VariantPreviewPage({ params }: PageProps) {
+export default async function VariantPreviewPage({ params, searchParams }: PageProps) {
   const { variant: key, slug } = await params;
+  const sp = await searchParams;
   const path = slugToPath(slug);
   if (!path) notFound();
-  return renderVariantPage(key, path);
+  return renderVariantPage(key, path, sp);
 }

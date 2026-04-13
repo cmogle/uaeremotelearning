@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: "Immediate, calm support for common remote-learning problems at Jumeirah College.",
 };
 
-export default function GetHelpNowPage() {
-  return renderLivePage("/get-help-now");
+type Props = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function GetHelpNowPage({ searchParams }: Props) {
+  const params = await searchParams;
+  return renderLivePage("/get-help-now", params);
 }

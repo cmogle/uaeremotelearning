@@ -624,12 +624,41 @@ function SlowSteps({ routeKey }: { routeKey: RouteKey }) {
 
 /* ------------------------------------------------------------------ */
 /*  HelpHub — button grid + per-topic mini-wizard                      */
+/*  Progressive enhancement: works as plain <a> links without JS.      */
+/*  With JS, onClick intercepts for smooth client-side transitions.    */
 /* ------------------------------------------------------------------ */
 
-function HelpHub() {
+function buildHelpHref(
+  base: string,
+  topic?: string,
+  step?: number
+): string {
+  if (!topic) return base;
+  const params = new URLSearchParams();
+  params.set("topic", topic);
+  if (step !== undefined && step > 0) params.set("step", String(step));
+  return `${base}?${params.toString()}`;
+}
+
+function HelpHub({
+  initialTopic,
+  initialStep,
+}: {
+  initialTopic?: string | null;
+  initialStep?: number;
+}) {
   const pathname = usePathname() ?? "";
-  const [activeCardId, setActiveCardId] = useState<string | null>(null);
-  const [stepIndex, setStepIndex] = useState(0);
+  const helpBase = buildRouteHref(pathname, "/get-help-now");
+
+  const validInitialTopic =
+    initialTopic && helperCards.some((c) => c.id === initialTopic)
+      ? initialTopic
+      : null;
+
+  const [activeCardId, setActiveCardId] = useState<string | null>(
+    validInitialTopic
+  );
+  const [stepIndex, setStepIndex] = useState(initialStep ?? 0);
 
   const activeCard = activeCardId
     ? (helperCards.find((c) => c.id === activeCardId) ?? null)
@@ -675,24 +704,41 @@ function HelpHub() {
       ? Math.round(((stepIndex + 1) / totalSlides) * 100)
       : 0;
 
-  const openCard = useCallback((id: string) => {
-    setActiveCardId(id);
-    setStepIndex(0);
+  /* Client-side navigation helpers — enhance <a> links when JS is available */
+  const navigate = useCallback(
+    (topic: string | null, step: number) => {
+      setActiveCardId(topic);
+      setStepIndex(step);
+      const href = buildHelpHref(helpBase, topic ?? undefined, step);
+      window.history.pushState(null, "", href);
+    },
+    [helpBase]
+  );
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent, topic: string | null, step: number) => {
+      e.preventDefault();
+      navigate(topic, step);
+    },
+    [navigate]
+  );
+
+  /* Handle browser back/forward */
+  useEffect(() => {
+    const onPopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const topic = params.get("topic");
+      const step = Number.parseInt(params.get("step") ?? "0", 10);
+      setActiveCardId(
+        topic && helperCards.some((c) => c.id === topic) ? topic : null
+      );
+      setStepIndex(Number.isFinite(step) ? step : 0);
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  const closeCard = useCallback(() => {
-    setActiveCardId(null);
-    setStepIndex(0);
-  }, []);
-
-  const nextStep = useCallback(() => {
-    if (stepIndex < totalSlides - 1) setStepIndex((s) => s + 1);
-  }, [stepIndex, totalSlides]);
-
-  const prevStep = useCallback(() => {
-    if (stepIndex > 0) setStepIndex((s) => s - 1);
-  }, [stepIndex]);
-
+  /* Keyboard navigation */
   useEffect(() => {
     if (!activeCard) return;
     const onKey = (e: KeyboardEvent) => {
@@ -702,26 +748,36 @@ function HelpHub() {
         (target.tagName === "INPUT" || target.tagName === "TEXTAREA")
       )
         return;
-      if (e.key === "ArrowRight") {
+      if (e.key === "ArrowRight" && stepIndex < totalSlides - 1) {
         e.preventDefault();
-        nextStep();
-      } else if (e.key === "ArrowLeft") {
+        navigate(activeCardId, stepIndex + 1);
+      } else if (e.key === "ArrowLeft" && stepIndex > 0) {
         e.preventDefault();
-        prevStep();
+        navigate(activeCardId, stepIndex - 1);
       } else if (e.key === "Escape") {
         e.preventDefault();
-        closeCard();
+        navigate(null, 0);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [activeCard, nextStep, prevStep, closeCard]);
+  }, [activeCard, activeCardId, stepIndex, totalSlides, navigate]);
 
   const currentPath = "/get-help-now";
 
   /* ---------- Mini-wizard for a single topic ---------- */
   if (activeCard) {
     const emoji = HELPER_EMOJI[activeCard.id] ?? "";
+    const backToGridHref = helpBase;
+    const prevHref =
+      stepIndex > 0
+        ? buildHelpHref(helpBase, activeCard.id, stepIndex - 1)
+        : undefined;
+    const nextHref =
+      stepIndex < totalSlides - 1
+        ? buildHelpHref(helpBase, activeCard.id, stepIndex + 1)
+        : undefined;
+
     return (
       <div className={styles.shell}>
         <div className={styles.progressBar} aria-hidden>
@@ -735,13 +791,13 @@ function HelpHub() {
 
         <main className={styles.stage}>
           <article className={styles.card}>
-            <button
+            <a
               className={styles.helpBackToTopics}
-              onClick={closeCard}
-              type="button"
+              href={backToGridHref}
+              onClick={(e) => handleClick(e, null, 0)}
             >
               ← Back to topics
-            </button>
+            </a>
             <p className={styles.kicker}>
               <span className={styles.kickerEmoji}>{emoji}</span>
               {activeCard.title}
@@ -756,32 +812,41 @@ function HelpHub() {
           </article>
 
           <nav aria-label="Step controls" className={styles.controls}>
-            <button
-              className={styles.back}
-              disabled={stepIndex === 0}
-              onClick={prevStep}
-              type="button"
-            >
-              ← Back
-            </button>
+            {prevHref ? (
+              <a
+                className={styles.back}
+                href={prevHref}
+                onClick={(e) =>
+                  handleClick(e, activeCard.id, stepIndex - 1)
+                }
+              >
+                ← Back
+              </a>
+            ) : (
+              <span className={`${styles.back} ${styles.disabled}`}>
+                ← Back
+              </span>
+            )}
             <span className={styles.controlHint}>← → arrow keys</span>
             {isLastSlide ? (
-              <button
+              <a
                 className={styles.next}
-                onClick={closeCard}
-                type="button"
+                href={backToGridHref}
+                onClick={(e) => handleClick(e, null, 0)}
               >
                 Done ✓
-              </button>
-            ) : (
-              <button
+              </a>
+            ) : nextHref ? (
+              <a
                 className={styles.next}
-                onClick={nextStep}
-                type="button"
+                href={nextHref}
+                onClick={(e) =>
+                  handleClick(e, activeCard.id, stepIndex + 1)
+                }
               >
                 Next step →
-              </button>
-            )}
+              </a>
+            ) : null}
           </nav>
         </main>
       </div>
@@ -804,17 +869,17 @@ function HelpHub() {
         <div className={styles.helpGrid}>
           {helperCards.map((card) => {
             const emoji = HELPER_EMOJI[card.id] ?? "";
-            const Icon = card.icon;
+            const href = buildHelpHref(helpBase, card.id);
             return (
-              <button
+              <a
                 className={styles.helpButton}
                 key={card.id}
-                onClick={() => openCard(card.id)}
-                type="button"
+                href={href}
+                onClick={(e) => handleClick(e, card.id, 0)}
               >
                 <span className={styles.helpButtonEmoji}>{emoji}</span>
                 <span className={styles.helpButtonTitle}>{card.title}</span>
-              </button>
+              </a>
             );
           })}
         </div>
@@ -942,8 +1007,16 @@ export function HomePage() {
   return <SlowSteps routeKey="home" />;
 }
 
-export function HelpPage() {
-  return <HelpHub />;
+export function HelpPage({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
+  const topic = typeof searchParams?.topic === "string" ? searchParams.topic : null;
+  const step = typeof searchParams?.step === "string"
+    ? Number.parseInt(searchParams.step, 10) || 0
+    : 0;
+  return <HelpHub initialTopic={topic} initialStep={step} />;
 }
 
 export function SchoolDayPage() {
