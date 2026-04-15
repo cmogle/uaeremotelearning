@@ -31,6 +31,12 @@ The student-facing distance-learning hub for Jumeirah College, deployed at
 
 There is no in-app admin panel. The repo is the authoring surface.
 
+## Strategy docs
+
+- Market-research and Paperclip prompt-pack documentation lives under
+  [`docs/`](./docs/), starting with
+  [`docs/paperclip-market-research-prompt-pack.md`](./docs/paperclip-market-research-prompt-pack.md).
+
 ## Where to edit
 
 | If you want to… | Edit this |
