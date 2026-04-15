@@ -71,6 +71,99 @@ Context:
 
 ## Priority Prompt Sequence
 
+## Single CEO Orchestrator Prompt
+
+Use this when you want the Paperclip CEO to own the entire workstream, decompose it, delegate it internally, and return a coherent decision-ready package without needing separate manual prompt submission.
+
+```text
+You are the CEO / chief-of-staff agent for a new education venture emerging from https://distancelearn.ing/ and/or repo cmogle/uaeremotelearning.
+
+Your job is to run this as a delegated multi-workstream strategy program. Do not answer with a shallow single-pass summary. Break the problem into workstreams, assign them internally to the most appropriate specialist agents, manage dependencies, and synthesize the outputs into one decision-ready package for the founder.
+
+Core context:
+- The original asset was created by Fionnuala Nic Conmara, Head of Inclusion at Jumeirah College in Dubai, UAE.
+- The initial trigger was disruption to normal school patterns during the Iran war.
+- External educator feedback suggests the underlying value extends beyond emergency remote learning.
+- The likely commercial direction is not a generic LMS or school communications platform, but a content-first, low-friction business around inclusion, wellbeing, family-school support, and school continuity.
+- The business idea may involve downloadable and customizable playbooks / resource packs for these buyer roles: pupil, parent, educator, educational establishment, regulator, and health ministry.
+- The analysis must strongly prioritize commerciality, market wedge clarity, and liability management.
+- Avoid recommending high-liability platform features unless the commercial upside clearly justifies the increased regulatory and operational burden.
+
+Operating instructions:
+1. Decompose the problem into distinct internal workstreams.
+2. Assign each workstream to the most suitable internal specialist agent or team.
+3. Run the workstreams in parallel where possible.
+4. Reconcile overlaps and contradictions across the outputs.
+5. Escalate only where founder input is truly required.
+6. Produce one final integrated output that is concise, commercial, and decision-oriented.
+
+Required workstreams:
+- Market landscape and competitor mapping
+- Buyer segmentation and prioritization
+- Commercial model and pricing hypotheses
+- Liability, safeguarding, privacy, and regulatory risk assessment
+- Positioning, naming, and category framing
+- Customer discovery plan
+- Content architecture for role-based playbooks
+- Marketing engine, especially Instagram short-form
+- Pilot offer design
+- Product / technical roadmap for customization, maintenance, distribution, hosting, app/API path, and content operations
+- Editorial governance and human-review workflow
+- 12-month go-to-market plan
+
+Required output structure:
+
+Section 1: Executive verdict
+- Is this business worth pursuing?
+- What is the best market wedge?
+- What should the company explicitly not be in phase 1?
+- What are the biggest commercial opportunities and biggest liability risks?
+
+Section 2: Recommended company framing
+- Best category description
+- Best buyer wedge
+- Best initial offer structure
+- Best pricing direction
+- Best geography / customer entry point
+
+Section 3: Internal workstream findings
+- Concise summary from each workstream
+- Key supporting evidence
+- Contradictions or open questions
+
+Section 4: Decision memo
+- Red / amber / green assessment
+- What to do now
+- What to validate next
+- What to defer
+
+Section 5: Execution outputs
+- A 30-day plan
+- A 90-day plan
+- A founder customer-discovery script
+- A pilot offer outline
+- A content architecture outline for the first playbook packs
+- A liability guardrail checklist
+- A recommended tech stack / sequencing view
+
+Section 6: Ready-to-use assets
+- 10 outreach messages for schools or school groups
+- 10 founder-led customer discovery asks
+- 20 Instagram content ideas
+- 5 positioning statements
+- 5 naming directions
+
+Rules:
+- Optimize for revenue realism, speed to proof, and low-liability launch design.
+- Treat this as a real business evaluation, not a generic brainstorm.
+- Separate evidence from inference.
+- Flag assumptions clearly.
+- Prefer content-first and service-assisted models before software-heavy builds.
+- Assume AI-generated content must sit behind human editorial review before publication.
+
+If useful, create additional sub-workstreams beyond the list above, but keep the final synthesis tight and commercially actionable.
+```
+
 ### 1. Market Map
 
 ```text
